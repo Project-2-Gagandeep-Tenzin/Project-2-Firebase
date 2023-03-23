@@ -1,6 +1,7 @@
-@use "variables" as var;
+@use "./variables" as var;
+
 body {
-  font-family: var.$faint-stack;
+  font-family: var.$font-stack;
 }
 ul {
   list-style-type: none;
@@ -16,4 +17,10 @@ h2 {
 }
 img {
   max-width: 100%;
+}
+.wrapper {
+  max-width: 1080px;
+  width: 90%;
+  margin: 0 auto;
+  border: var.$border;
 }
