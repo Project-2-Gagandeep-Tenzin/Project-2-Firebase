@@ -3,8 +3,6 @@
 
 header {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 .top-bar {
   text-transform: uppercase;
@@ -41,7 +39,6 @@ header {
 // Navbar Section
 .navbar {
   margin: 10px 0px;
-  flex: 0 0 auto;
 }
 .navbar .wrapper {
   display: flex;
@@ -83,7 +80,6 @@ header {
 // Header Banner
 
 .header-banner {
-  flex: 2 1 auto;
   background-color: #f8eee5;
   padding: 50px;
 }
@@ -132,6 +128,9 @@ header {
 }
 
 @media (max-width: 768px) {
+  header {
+    height: auto;
+  }
   // Header Banner
   .header-banner .wrapper {
     flex-direction: column;

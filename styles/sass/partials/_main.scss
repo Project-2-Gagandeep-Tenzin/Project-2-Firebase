@@ -1,0 +1,38 @@
+@use "./variables" as *;
+@use "global";
+
+// SERVICES SECTION HERE
+
+.services {
+  margin: 60px 0px;
+}
+
+.services .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.service-box {
+  display: flex;
+  border: 2px dotted $primary;
+  padding: 5px 30px;
+  align-items: center;
+
+  img {
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .service-info {
+    margin-left: 20px;
+  }
+}
+
+// MEDIA QUERIES
+
+@media (max-width: 992px) {
+  .services .wrapper {
+    flex-direction: column;
+  }
+  .service-box {
+    margin-bottom: 20px;
+  }
+}
