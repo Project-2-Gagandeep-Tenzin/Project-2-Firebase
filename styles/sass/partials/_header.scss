@@ -1,13 +1,9 @@
 @use "./variables" as *;
 @use "global";
 
-header {
-  border: $border;
-}
 .top-bar {
   text-transform: uppercase;
   background: $primary;
-  border: var.$border;
   color: #fff;
   padding: 0;
   font-size: x-small;
@@ -24,7 +20,6 @@ header {
   ul {
     display: flex;
     flex: 1 1 auto;
-    border: $border;
     align-items: center;
     justify-content: flex-end;
 
@@ -37,10 +32,56 @@ header {
   }
 }
 
+// Navbar Section
+
+.navbar .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  flex: 2 1 auto;
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1 1 auto;
+
+  .nav-links {
+    color: #000;
+    text-transform: uppercase;
+  }
+}
+.shopping-bag {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  flex: 2.5 1 auto;
+
+  img {
+    margin-top: 16px;
+  }
+}
+
+.hamburger {
+  font-size: 28px;
+  margin-top: 16px;
+  text-decoration: none;
+  color: #000;
+  display: none;
+}
+
 // Media Queries Section
 
 @media (max-width: 480px) {
   .top-bar .wrapper {
     font-size: 10px;
+  }
+  .nav,
+  .shopping-bag {
+    display: none;
+  }
+  .hamburger {
+    display: block;
   }
 }
