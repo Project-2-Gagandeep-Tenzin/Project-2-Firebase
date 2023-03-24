@@ -533,6 +533,98 @@ header {
   margin-left: 20px;
 }
 
+.products .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.products .wrapper h2 {
+  text-transform: uppercase;
+  position: relative;
+  margin: 20px 0px;
+}
+.products .wrapper h2:before,
+.products .wrapper h2:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 70px;
+  height: 2px;
+  background-color: #abd373;
+}
+.products .wrapper h2:before {
+  right: 0;
+  margin-right: -90px;
+}
+.products .wrapper h2:after {
+  left: 0;
+  margin-left: -90px;
+}
+
+.filter-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
+  margin: 20px 0px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.filter-tabs li {
+  border: 1px solid lightgray;
+  padding: 10px 25px;
+}
+.filter-tabs li:hover {
+  border: 1px dotted #abd373;
+}
+.filter-tabs a {
+  color: #000;
+}
+.filter-tabs a:hover {
+  color: #abd373;
+}
+
+.products-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 20px 0px;
+}
+
+.product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 250px;
+          flex: 0 0 250px;
+  line-height: 0;
+}
+.product img {
+  max-width: 90%;
+}
+.product .cart {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+}
+
 @media (max-width: 992px) {
   .services .wrapper {
     -webkit-box-orient: vertical;
@@ -542,5 +634,13 @@ header {
   }
   .service-box {
     margin-bottom: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .product {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding: 20px;
   }
 }
