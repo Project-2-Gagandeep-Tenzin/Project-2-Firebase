@@ -147,27 +147,86 @@
 
 .box-1 {
   background: url(./../assets/b1.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 .box-2 {
   background: url(./../assets/b2.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 .box-3 {
   background: url(./../assets/b3.jpeg);
+}
+.box-4 {
+  background: url(./../assets/b4.jpeg);
+}
+
+.box-1,
+.box-2,
+.box-3,
+.box-4 {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
-.box-4 {
-  background: url(./../assets/b4.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+
+// BLOG STYLES
+
+.blog .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    text-transform: uppercase;
+    position: relative;
+    color: #000;
+    margin: 20px 0px;
+  }
+  h2:before,
+  h2:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 70px;
+    height: 2px;
+    background-color: #000;
+  }
+  h2:before {
+    right: 0;
+    margin-right: -90px;
+  }
+  h2:after {
+    left: 0;
+    margin-left: -90px;
+  }
+  .sub-heading {
+    text-align: center;
+    width: 50%;
+  }
+}
+
+.posts {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+
+.post {
+  background: $faint-blue;
+  flex-basis: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  .post-date {
+    color: $primary;
+  }
+  .post-heading {
+    line-height: 0;
+  }
+
+  img {
+    margin-top: 20px;
+  }
 }
 
 // MEDIA QUERIES
@@ -178,6 +237,26 @@
   }
   .service-box {
     margin-bottom: 20px;
+  }
+
+  //   BLOG SECTION
+
+  .posts {
+    flex-direction: column;
+
+    .post {
+      margin: 30px auto 0;
+      max-width: 70%;
+      width: 90%;
+      align-items: center;
+
+      .post-content {
+        width: 60%;
+      }
+      img {
+        margin-top: 20px;
+      }
+    }
   }
 }
 @media (max-width: 768px) {
@@ -200,6 +279,23 @@
     padding: 60px;
     .collection-text {
       align-items: flex-start;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .posts {
+    flex-direction: column;
+
+    .post {
+      margin-top: 30px;
+      max-width: 100%;
+      width: 100%;
+      align-items: flex-start;
+
+      .post-content {
+        width: 100%;
+      }
     }
   }
 }
