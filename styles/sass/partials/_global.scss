@@ -1,7 +1,7 @@
-@use "./variables" as var;
+@use "./variables" as *;
 
 body {
-  font-family: var.$font-stack;
+  font-family: $font-stack;
 }
 ul {
   list-style-type: none;
