@@ -447,6 +447,20 @@ header {
   width: 70%;
 }
 
+.contact-header-banner {
+  background: url(./../assets/contact-header.jpg);
+  background-position: center;
+}
+.contact-header-banner .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 100px;
+}
+
 @media (max-width: 992px) {
   .header-text h2 {
     font-size: 32px;

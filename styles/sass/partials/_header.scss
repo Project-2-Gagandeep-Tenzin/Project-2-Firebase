@@ -115,6 +115,18 @@ header {
   }
 }
 
+// CONTACT PAGE HEADER SECTION
+
+.contact-header-banner {
+  background: url(./../assets/contact-header.jpg);
+  background-position: center;
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+  }
+}
+
 // Media Queries Section
 
 @media (max-width: 992px) {
