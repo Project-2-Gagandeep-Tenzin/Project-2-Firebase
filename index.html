@@ -12,6 +12,14 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
@@ -31,16 +39,19 @@
             <img src="./assets/logo.png" alt="logo" />
           </div>
           <ul class="nav">
-            <li class="nav-items">
+            <li class="nav-items hvr-grow">
               <a class="nav-links" href="index.html">Home</a>
             </li>
-            <li class="nav-items"><a class="nav-links" href="#">Blog</a></li>
-            <li class="nav-items">
+            <li class="nav-items hvr-grow">
+              <a class="nav-links" href="#">Blog</a>
+            </li>
+            <li class="nav-items hvr-grow">
               <a class="nav-links" href="contact.html">Contact Us</a>
             </li>
           </ul>
           <div class="shopping-bag">
             <img
+              class="hvr-float"
               src="./assets/icons/shopping-bag.svg"
               width="24"
               height="24"
@@ -52,14 +63,20 @@
       </nav>
       <div class="header-banner">
         <div class="wrapper">
-          <div class="header-text">
+          <div
+            class="header-text animate__animated animate__bounceInDown animate__delay-1s"
+          >
             <h2>65% OFF</h2>
             <h1>NEW PLANT</h1>
             <p>Pronia, With 100% Natural, Organic & Plant Shop.</p>
-            <button type="button">Discover Now</button>
+            <button class="hvr-pulse" type="button">Discover Now</button>
           </div>
-          <div class="header-img">
-            <img src="./assets/header.png" alt="header-img" />
+          <div class="header-img hvr-bob">
+            <img
+              class="animate__animated animate__bounceInRight animate__delay-1s"
+              src="./assets/header.png"
+              alt="header-img"
+            />
           </div>
         </div>
       </div>
@@ -95,12 +112,14 @@
         <div class="wrapper">
           <h2>Our Products</h2>
           <ul class="filter-tabs">
-            <li><a href="#">Featured</a></li>
+            <li>
+              <a href="#">Featured</a>
+            </li>
             <li><a href="#">Bestseller</a></li>
             <li><a href="#">Latest</a></li>
           </ul>
           <ul class="products-list">
-            <li class="product">
+            <li class="product hvr-float">
               <img src="./assets/p2.jpeg" alt="product-img" />
               <img
                 class="cart"
@@ -112,7 +131,7 @@
               <p>American Marigold</p>
               <p>$23.45</p>
             </li>
-            <li class="product">
+            <li class="product hvr-float">
               <img src="./assets/p1.jpeg" alt="product-img" />
               <img
                 class="cart"
@@ -124,7 +143,7 @@
               <p>Black Eyed Susan</p>
               <p>$25.45</p>
             </li>
-            <li class="product">
+            <li class="product hvr-float">
               <img src="./assets/p3.jpeg" alt="product-img" />
               <img
                 class="cart"
@@ -136,7 +155,7 @@
               <p>Bleeding Heart</p>
               <p>$30.45</p>
             </li>
-            <li class="product">
+            <li class="product hvr-float">
               <img src="./assets/p4.jpeg" alt="product-img" />
               <img
                 class="cart"
@@ -148,7 +167,7 @@
               <p>Bloody Cranesbill</p>
               <p>$45.00</p>
             </li>
-            <li class="product">
+            <li class="product hvr-float">
               <img src="./assets/p5.jpeg" alt="product-img" />
               <img
                 class="cart"
@@ -160,7 +179,7 @@
               <p>Butterfly Weed</p>
               <p>$50.45</p>
             </li>
-            <li class="product">
+            <li class="product hvr-float">
               <img src="./assets/p6.jpeg" alt="product-img" />
               <img
                 class="cart"
@@ -172,7 +191,7 @@
               <p>Common Yarrow</p>
               <p>$65.00</p>
             </li>
-            <li class="product">
+            <li class="product hvr-float">
               <img src="./assets/p7.jpeg" alt="product-img" />
               <img
                 class="cart"
@@ -184,7 +203,7 @@
               <p>Double Viburnum</p>
               <p>$67.45</p>
             </li>
-            <li class="product">
+            <li class="product hvr-float">
               <img src="./assets/p8.jpeg" alt="product-img" />
               <img
                 class="cart"
@@ -208,14 +227,14 @@
             <div class="collection-text">
               <p>Collection of Cactus</p>
               <h2>Pottery Pots & Plant</h2>
-              <button>Shop Now</button>
+              <button class="hvr-wobble-skew">Shop Now</button>
             </div>
           </div>
           <div class="collection-sm box-2">
             <div class="collection-text">
               <p>New Collection</p>
               <h2>Plant Port</h2>
-              <button>Shop Now</button>
+              <button class="hvr-wobble-skew">Shop Now</button>
             </div>
           </div>
 
@@ -223,7 +242,7 @@
             <div class="collection-text">
               <p>New Collection</p>
               <h2>Plant Port</h2>
-              <button>Shop Now</button>
+              <button class="hvr-wobble-skew">Shop Now</button>
             </div>
           </div>
 
@@ -231,7 +250,7 @@
             <div class="collection-text">
               <p>Collection of Cactus</p>
               <h2>Hanging Pots & Plant</h2>
-              <button>Shop Now</button>
+              <button class="hvr-wobble-skew">Shop Now</button>
             </div>
           </div>
         </div>
@@ -245,7 +264,7 @@
             has roots in a piece of classical Latin literature.
           </p>
           <ul class="posts">
-            <li class="post">
+            <li class="post hvr-float-shadow">
               <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
               <h3 class="post-heading">Aenean Vulputate Lorem</h3>
               <p class="post-content">
@@ -255,7 +274,7 @@
               </p>
               <img src="./assets/blog1.jpeg" alt="blog-pic-1" />
             </li>
-            <li class="post">
+            <li class="post hvr-float-shadow">
               <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
               <h3 class="post-heading">There Are Many Variations</h3>
               <p class="post-content">
@@ -266,7 +285,7 @@
               <img src="./assets/blog3.jpeg" alt="blog-pic-2" />
             </li>
 
-            <li class="post">
+            <li class="post hvr-float-shadow">
               <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
               <h3 class="post-heading">Maecenas Laoreet Massa</h3>
               <p class="post-content">
