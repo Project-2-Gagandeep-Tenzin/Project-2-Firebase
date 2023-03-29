@@ -299,10 +299,7 @@ header {
   background: #abd373;
   color: #fff;
   padding: 0;
-  font-size: x-small;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  font-size: 12px;
 }
 
 .top-bar .wrapper {
@@ -333,7 +330,7 @@ header {
           justify-content: flex-end;
 }
 .top-bar .wrapper ul li {
-  margin-left: 1rem;
+  margin-left: 16px;
 }
 .top-bar .wrapper ul li a {
   color: #fff;
@@ -496,7 +493,7 @@ header {
 }
 @media (max-width: 480px) {
   .top-bar .wrapper {
-    font-size: 10px;
+    font-size: 9px;
   }
   .nav,
   .shopping-bag {
@@ -520,6 +517,21 @@ header {
   }
 }
 @media (max-width: 360px) {
+  .top-bar .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 5px;
+  }
+  .top-bar .wrapper h3 {
+    text-align: center;
+  }
+  .top-bar .wrapper ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
   .header-img {
     display: none;
   }
