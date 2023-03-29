@@ -62,9 +62,17 @@ header {
   justify-content: flex-end;
   align-content: center;
   flex: 2.5 1 auto;
-
+  position: relative;
   img {
-    margin-top: 16px;
+    margin: 16px 10px 0 0;
+  }
+  span {
+    position: absolute;
+    top: 15%;
+    background: $primary;
+    border-radius: 50%;
+    padding: 0 5px;
+    color: #fff;
   }
 }
 

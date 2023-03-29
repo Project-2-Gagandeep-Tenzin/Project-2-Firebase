@@ -385,9 +385,18 @@ header {
   -webkit-box-flex: 2.5;
       -ms-flex: 2.5 1 auto;
           flex: 2.5 1 auto;
+  position: relative;
 }
 .shopping-bag img {
-  margin-top: 16px;
+  margin: 16px 10px 0 0;
+}
+.shopping-bag span {
+  position: absolute;
+  top: 15%;
+  background: #abd373;
+  border-radius: 50%;
+  padding: 0 5px;
+  color: #fff;
 }
 
 .hamburger {
