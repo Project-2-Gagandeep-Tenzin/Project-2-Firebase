@@ -24,3 +24,13 @@ img {
   width: 90%;
   margin: 0 auto;
 }
+button {
+  color: #fff;
+  background: $primary;
+  padding: 12px 32px;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  text-transform: uppercase;
+  cursor: pointer;
+}

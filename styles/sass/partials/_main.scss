@@ -1,12 +1,11 @@
 @use "./variables" as *;
 @use "global";
 
-// SERVICES SECTION HERE
+//**************************** SERVICES SECTION - STYLE ******************************
 
 .services {
-  margin: 50px 0px;
+  margin-top: 100px;
 }
-
 .services .wrapper {
   display: flex;
   justify-content: space-between;
@@ -26,8 +25,11 @@
   }
 }
 
-// Products Section
+//**************************** PRODUCTS SECTION - STYLE ******************************
 
+.products {
+  margin-top: 100px;
+}
 .products .wrapper {
   display: flex;
   flex-direction: column;
@@ -37,7 +39,7 @@
     position: relative;
     margin: 20px 0px;
   }
-  h2:before,
+  h2:before,  // For adding lines around our products heading
   h2:after {
     content: "";
     position: absolute;
@@ -74,44 +76,53 @@
     }
   }
 }
-
-.products-list {
+.products-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 20px 0px;
 }
-
-.product {
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 250px;
-  line-height: 0;
-
-  img {
-    max-width: 90%;
-  }
-  .cart {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 5px;
+.products-list {
+  flex-basis: 250px;
+  .product {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    line-height: 0;
+    img {
+      max-width: 90%;
+    }
+    .cart {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 5px;
+    }
+    p {
+      font-weight: 600;
+    }
+    p:last-child {
+      font-weight: 400;
+      color: $primary;
+    }
   }
 }
 
-// Collection
+//**************************** COLLECTION SECTION - STYLE ******************************
+
+.collection {
+  margin-top: 50px;
+}
 .collection .wrapper {
   display: flex;
   flex-wrap: wrap;
 }
-
 .collection-lg {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex: 2 1 65%;
+  flex-basis: 65%;
   margin: 10px;
   padding: 60px;
 }
-
 .collection-text {
   display: flex;
   flex-direction: column;
@@ -122,23 +133,16 @@
     font-size: 36px;
   }
   button {
-    text-transform: uppercase;
     font-size: small;
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: $primary;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
   }
 }
 .collection-sm {
-  flex: 2 1 25%;
+  flex-basis: 25%;
   margin: 10px;
   display: flex;
   flex-direction: column;
-
   .collection-text {
     align-items: center;
     margin-top: 30px;
@@ -311,15 +315,26 @@ form {
   }
 }
 
-// MEDIA QUERIES
+//**********************  MEDIA QUERIES (MAX-WIDTH:992px) - STYLE ***********************
 
 @media (max-width: 992px) {
+  //**********************  SERVICES SECTION - STYLE ************************
+  .services {
+    margin-top: 50px;
+  }
   .services .wrapper {
     flex-direction: column;
   }
   .service-box {
     margin-bottom: 20px;
   }
+  //**********************  PRODUCTS SECTION - STYLE ************************
+
+  // PRODUCTS SECTION
+  .products {
+    margin-top: 50px;
+  }
+  //**********************  BLOG SECTION - STYLE ************************
 
   //   BLOG SECTION
 
@@ -341,31 +356,33 @@ form {
     }
   }
 }
+
+//**********************  MEDIA QUERIES (MAX-WIDTH:768px) - STYLE ***********************
+
 @media (max-width: 768px) {
-  .product {
+  //**********************  PRODUCTS SECTION - STYLE ************************
+  .products-list {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     padding: 20px;
   }
 
-  //   collection
-
+  //**********************  COLLECTION SECTION - STYLE ************************
   .collection .wrapper {
     flex-direction: column;
   }
   .collection-lg {
-    flex: 1 1 100%;
+    flex-basis: 100%;
   }
   .collection-sm {
-    flex: 1 1 100%;
+    flex-basis: 100%;
     padding: 60px;
     .collection-text {
       align-items: flex-start;
     }
   }
 
-  // CONTACT FORM
-
+  //**********************  CONTACT FORM SECTION - STYLE ************************
   .contact-container .wrapper {
     flex-direction: column;
   }
@@ -385,7 +402,10 @@ form {
   }
 }
 
+//**********************  MEDIA QUERIES (MAX-WIDTH:480px) - STYLE ***********************
+
 @media (max-width: 480px) {
+  //**********************  PRODUCTS SECTION - STYLE ************************
   .products .wrapper {
     h2 {
       position: static;
@@ -411,6 +431,8 @@ form {
       }
     }
   }
+
+  //**********************  BLOG SECTION - STYLE ************************
   .blog .wrapper {
     h2 {
       position: static;
@@ -435,7 +457,6 @@ form {
       width: 100%;
     }
   }
-
   .posts {
     flex-direction: column;
     margin-top: 0;
@@ -449,5 +470,14 @@ form {
         width: 100%;
       }
     }
+  }
+}
+
+//**********************  MEDIA QUERIES (MAX-WIDTH:360px) - STYLE ***********************
+
+@media (max-width: 360px) {
+  //**********************  SERVICES SECTION - STYLE ************************
+  .services {
+    margin: 20px 0;
   }
 }

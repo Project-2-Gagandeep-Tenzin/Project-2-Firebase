@@ -38,7 +38,7 @@
           <div class="logo">
             <img src="./assets/logo.png" alt="logo" />
           </div>
-          <ul class="nav">
+          <ul class="nav" id="nav">
             <li class="nav-items hvr-grow">
               <a class="nav-links" href="index.html">Home</a>
             </li>
@@ -51,7 +51,6 @@
           </ul>
           <div class="shopping-bag">
             <img
-              class="hvr-float"
               src="./assets/icons/shopping-bag.svg"
               width="24"
               height="24"
@@ -59,7 +58,7 @@
             />
             <span>3</span>
           </div>
-          <a href="#" class="hamburger">&#9776;</a>
+          <a href="#" class="hamburger" id="hamburger">&#9776;</a>
         </div>
       </nav>
       <div class="header-banner">
@@ -82,7 +81,9 @@
         </div>
       </div>
     </header>
+
     <main>
+      <!-- SERVICES SECTION START HERE -->
       <section class="services">
         <div class="wrapper">
           <div class="service-box">
@@ -108,7 +109,8 @@
           </div>
         </div>
       </section>
-      <!-- Products Section -->
+
+      <!-- PRODUCTS SECTION START HERE -->
       <section class="products">
         <div class="wrapper">
           <h2>Our Products</h2>
@@ -119,123 +121,138 @@
             <li><a href="#">Bestseller</a></li>
             <li><a href="#">Latest</a></li>
           </ul>
-          <ul class="products-list">
-            <li class="product hvr-float">
-              <img src="./assets/p2.jpeg" alt="product-img" />
-              <img
-                class="cart"
-                src="./assets/icons/cart.svg"
-                width="30"
-                height="30"
-                alt="cart-pic"
-              />
-              <p>American Marigold</p>
-              <p>$23.45</p>
+          <ul class="products-container">
+            <li class="products-list hvr-float">
+              <a class="product" href="#">
+                <img src="./assets/p2.jpeg" alt="product-img" />
+                <img
+                  class="cart"
+                  src="./assets/icons/cart.svg"
+                  width="30"
+                  height="30"
+                  alt="cart-pic"
+                />
+                <p>American Marigold</p>
+                <p>$23.45</p>
+              </a>
             </li>
-            <li class="product hvr-float">
-              <img src="./assets/p1.jpeg" alt="product-img" />
-              <img
-                class="cart"
-                src="./assets/icons/cart.svg"
-                width="30"
-                height="30"
-                alt="cart-pic"
-              />
-              <p>Black Eyed Susan</p>
-              <p>$25.45</p>
+            <li class="products-list hvr-float">
+              <a class="product" href="#">
+                <img src="./assets/p1.jpeg" alt="product-img" />
+                <img
+                  class="cart"
+                  src="./assets/icons/cart.svg"
+                  width="30"
+                  height="30"
+                  alt="cart-pic"
+                />
+                <p>Black Eyed Susan</p>
+                <p>$25.45</p>
+              </a>
             </li>
-            <li class="product hvr-float">
-              <img src="./assets/p3.jpeg" alt="product-img" />
-              <img
-                class="cart"
-                src="./assets/icons/cart.svg"
-                width="30"
-                height="30"
-                alt="cart-pic"
-              />
-              <p>Bleeding Heart</p>
-              <p>$30.45</p>
+            <li class="products-list hvr-float">
+              <a class="product" href="#">
+                <img src="./assets/p3.jpeg" alt="product-img" />
+                <img
+                  class="cart"
+                  src="./assets/icons/cart.svg"
+                  width="30"
+                  height="30"
+                  alt="cart-pic"
+                />
+                <p>Bleeding Heart</p>
+                <p>$30.45</p>
+              </a>
             </li>
-            <li class="product hvr-float">
-              <img src="./assets/p4.jpeg" alt="product-img" />
-              <img
-                class="cart"
-                src="./assets/icons/cart.svg"
-                width="30"
-                height="30"
-                alt="cart-pic"
-              />
-              <p>Bloody Cranesbill</p>
-              <p>$45.00</p>
+            <li class="products-list hvr-float">
+              <a class="product" href="#">
+                <img src="./assets/p4.jpeg" alt="product-img" />
+                <img
+                  class="cart"
+                  src="./assets/icons/cart.svg"
+                  width="30"
+                  height="30"
+                  alt="cart-pic"
+                />
+                <p>Bloody Cranesbill</p>
+                <p>$45.00</p>
+              </a>
             </li>
-            <li class="product hvr-float">
-              <img src="./assets/p5.jpeg" alt="product-img" />
-              <img
-                class="cart"
-                src="./assets/icons/cart.svg"
-                width="30"
-                height="30"
-                alt="cart-pic"
-              />
-              <p>Butterfly Weed</p>
-              <p>$50.45</p>
+            <li class="products-list hvr-float">
+              <a class="product" href="#">
+                <img src="./assets/p5.jpeg" alt="product-img" />
+                <img
+                  class="cart"
+                  src="./assets/icons/cart.svg"
+                  width="30"
+                  height="30"
+                  alt="cart-pic"
+                />
+                <p>Butterfly Weed</p>
+                <p>$50.45</p>
+              </a>
             </li>
-            <li class="product hvr-float">
-              <img src="./assets/p6.jpeg" alt="product-img" />
-              <img
-                class="cart"
-                src="./assets/icons/cart.svg"
-                width="30"
-                height="30"
-                alt="cart-pic"
-              />
-              <p>Common Yarrow</p>
-              <p>$65.00</p>
+            <li class="products-list hvr-float">
+              <a class="product" href="#">
+                <img src="./assets/p6.jpeg" alt="product-img" />
+                <img
+                  class="cart"
+                  src="./assets/icons/cart.svg"
+                  width="30"
+                  height="30"
+                  alt="cart-pic"
+                />
+                <p>Common Yarrow</p>
+                <p>$65.00</p>
+              </a>
             </li>
-            <li class="product hvr-float">
-              <img src="./assets/p7.jpeg" alt="product-img" />
-              <img
-                class="cart"
-                src="./assets/icons/cart.svg"
-                width="30"
-                height="30"
-                alt="cart-pic"
-              />
-              <p>Double Viburnum</p>
-              <p>$67.45</p>
+            <li class="products-list hvr-float">
+              <a class="product" href="#">
+                <img src="./assets/p7.jpeg" alt="product-img" />
+                <img
+                  class="cart"
+                  src="./assets/icons/cart.svg"
+                  width="30"
+                  height="30"
+                  alt="cart-pic"
+                />
+                <p>Double Viburnum</p>
+                <p>$67.45</p>
+              </a>
             </li>
-            <li class="product hvr-float">
-              <img src="./assets/p8.jpeg" alt="product-img" />
-              <img
-                class="cart"
-                src="./assets/icons/cart.svg"
-                width="30"
-                height="30"
-                alt="cart-pic"
-              />
-              <p>Feather Reed Grass</p>
-              <p>$20.00</p>
+            <li class="products-list hvr-float">
+              <a class="product" href="#">
+                <img src="./assets/p8.jpeg" alt="product-img" />
+                <img
+                  class="cart"
+                  src="./assets/icons/cart.svg"
+                  width="30"
+                  height="30"
+                  alt="cart-pic"
+                />
+                <p>Feather Reed Grass</p>
+                <p>$20.00</p>
+              </a>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- Collection Section  -->
-
+      <!-- COLLECTIONS SECTION START HERE  -->
       <section class="collection">
         <div class="wrapper">
           <div class="collection-lg box-1">
             <div class="collection-text">
               <p>Collection of Cactus</p>
               <h2>Pottery Pots & Plant</h2>
-              <button class="hvr-wobble-skew">Shop Now</button>
+              <button type="button" class="hvr-wobble-skew">Shop Now</button>
             </div>
           </div>
           <div class="collection-sm box-2">
             <div class="collection-text">
               <p>New Collection</p>
               <h2>Plant Port</h2>
-              <button class="hvr-wobble-skew">Shop Now</button>
+              <button type="button" class="hvr-wobble-skew">Shop Now</button>
             </div>
           </div>
 
@@ -243,7 +260,7 @@
             <div class="collection-text">
               <p>New Collection</p>
               <h2>Plant Port</h2>
-              <button class="hvr-wobble-skew">Shop Now</button>
+              <button type="button" class="hvr-wobble-skew">Shop Now</button>
             </div>
           </div>
 
@@ -251,12 +268,13 @@
             <div class="collection-text">
               <p>Collection of Cactus</p>
               <h2>Hanging Pots & Plant</h2>
-              <button class="hvr-wobble-skew">Shop Now</button>
+              <button type="button" class="hvr-wobble-skew">Shop Now</button>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- BLOG SECTION START HERE -->
       <section class="blog" id="blog">
         <div class="wrapper">
           <h2>Latest Posts</h2>
@@ -300,6 +318,8 @@
         </div>
       </section>
     </main>
+
+    <!-- FOOTER -->
     <footer>
       <div class="wrapper">
         <div class="footer-1">

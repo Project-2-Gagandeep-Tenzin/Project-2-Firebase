@@ -290,6 +290,17 @@ img {
   margin: 0 auto;
 }
 
+button {
+  color: #fff;
+  background: #abd373;
+  padding: 12px 32px;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 header {
   height: 100vh;
 }
@@ -430,17 +441,6 @@ header {
 .header-text h1 {
   font-size: 64px;
 }
-.header-text button {
-  color: #fff;
-  background: #abd373;
-  padding: 12px 32px;
-  border-radius: none;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 50px;
-  text-transform: uppercase;
-}
 
 .header-img {
   display: -webkit-box;
@@ -473,6 +473,9 @@ header {
 }
 
 @media (max-width: 992px) {
+  header {
+    height: auto;
+  }
   .header-text h2 {
     font-size: 32px;
   }
@@ -481,9 +484,6 @@ header {
   }
 }
 @media (max-width: 768px) {
-  header {
-    height: auto;
-  }
   .header-banner .wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -546,7 +546,7 @@ header {
   }
 }
 .services {
-  margin: 50px 0px;
+  margin-top: 100px;
 }
 
 .services .wrapper {
@@ -574,6 +574,10 @@ header {
 }
 .service-box .service-info {
   margin-left: 20px;
+}
+
+.products {
+  margin-top: 100px;
 }
 
 .products .wrapper {
@@ -634,7 +638,7 @@ header {
   color: #abd373;
 }
 
-.products-list {
+.products-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -646,7 +650,12 @@ header {
   margin: 20px 0px;
 }
 
-.product {
+.products-list {
+  -ms-flex-preferred-size: 250px;
+      flex-basis: 250px;
+}
+.products-list .product {
+  color: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -654,18 +663,26 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 250px;
-          flex: 0 0 250px;
   line-height: 0;
 }
-.product img {
+.products-list .product img {
   max-width: 90%;
 }
-.product .cart {
+.products-list .product .cart {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 5px;
+}
+.products-list .product p {
+  font-weight: 600;
+}
+.products-list .product p:last-child {
+  font-weight: 400;
+  color: #abd373;
+}
+
+.collection {
+  margin-top: 50px;
 }
 
 .collection .wrapper {
@@ -687,9 +704,8 @@ header {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-box-flex: 2;
-      -ms-flex: 2 1 65%;
-          flex: 2 1 65%;
+  -ms-flex-preferred-size: 65%;
+      flex-basis: 65%;
   margin: 10px;
   padding: 60px;
 }
@@ -711,21 +727,14 @@ header {
   font-size: 36px;
 }
 .collection-text button {
-  text-transform: uppercase;
   font-size: small;
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #abd373;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 50px;
 }
 
 .collection-sm {
-  -webkit-box-flex: 2;
-      -ms-flex: 2 1 25%;
-          flex: 2 1 25%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
   margin: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -951,6 +960,9 @@ form {
 }
 
 @media (max-width: 992px) {
+  .services {
+    margin-top: 50px;
+  }
   .services .wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -959,6 +971,9 @@ form {
   }
   .service-box {
     margin-bottom: 20px;
+  }
+  .products {
+    margin-top: 50px;
   }
   .posts {
     -webkit-box-orient: vertical;
@@ -982,7 +997,7 @@ form {
   }
 }
 @media (max-width: 768px) {
-  .product {
+  .products-list {
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
@@ -995,14 +1010,12 @@ form {
             flex-direction: column;
   }
   .collection-lg {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
   }
   .collection-sm {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 100%;
-            flex: 1 1 100%;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
     padding: 60px;
   }
   .collection-sm .collection-text {
@@ -1097,6 +1110,11 @@ form {
   }
   .posts .post .post-content {
     width: 100%;
+  }
+}
+@media (max-width: 360px) {
+  .services {
+    margin: 20px 0;
   }
 }
 footer {
