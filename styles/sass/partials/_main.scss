@@ -148,7 +148,6 @@
     margin-top: 30px;
   }
 }
-
 .box-1 {
   background: url(./../assets/b1.jpeg);
 }
@@ -161,7 +160,6 @@
 .box-4 {
   background: url(./../assets/b4.jpeg);
 }
-
 .box-1,
 .box-2,
 .box-3,
@@ -171,8 +169,10 @@
   background-position: center;
 }
 
-// BLOG STYLES
-
+//**************************** BLOG SECTION - STYLE ******************************
+.blog {
+  margin-top: 50px;
+}
 .blog .wrapper {
   display: flex;
   flex-direction: column;
@@ -191,7 +191,7 @@
     top: 50%;
     width: 70px;
     height: 2px;
-    background-color: #000;
+    background-color: $primary;
   }
   h2:before {
     right: 0;
@@ -214,27 +214,26 @@
 }
 
 .post {
-  background: $faint-blue;
-  flex-basis: 300px;
   display: flex;
   flex-direction: column;
+  flex-basis: 300px;
   align-items: space-between;
+  background: $faint-blue;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
   padding: 20px;
+
   .post-date {
     color: $primary;
   }
   .post-heading {
     line-height: 0;
   }
-
   img {
     margin-top: 20px;
   }
 }
 
-// CONTACT FORM SECTION
-
+// *************************** CONTACT FORM SECTION HERE ****************************
 .contact-container {
   margin: 70px 0px;
 }
@@ -328,21 +327,18 @@ form {
   .service-box {
     margin-bottom: 20px;
   }
-  //**********************  PRODUCTS SECTION - STYLE ************************
 
-  // PRODUCTS SECTION
+  //**********************  PRODUCTS SECTION - STYLE ************************
   .products {
     margin-top: 50px;
   }
+
   //**********************  BLOG SECTION - STYLE ************************
-
-  //   BLOG SECTION
-
   .posts {
     flex-direction: column;
 
     .post {
-      margin: 30px auto 0;
+      margin: 0 auto 30px;
       max-width: 70%;
       width: 90%;
       align-items: center;
@@ -461,7 +457,7 @@ form {
     flex-direction: column;
     margin-top: 0;
     .post {
-      margin-top: 20px;
+      margin: 20px 0px;
       max-width: 100%;
       width: 100%;
       align-items: flex-start;

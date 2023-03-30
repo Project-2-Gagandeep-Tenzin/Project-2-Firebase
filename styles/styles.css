@@ -776,6 +776,10 @@ header {
   background-position: center;
 }
 
+.blog {
+  margin-top: 50px;
+}
+
 .blog .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -801,7 +805,7 @@ header {
   top: 50%;
   width: 70px;
   height: 2px;
-  background-color: #000;
+  background-color: #abd373;
 }
 .blog .wrapper h2:before {
   right: 0;
@@ -826,9 +830,6 @@ header {
 }
 
 .post {
-  background: #f6f7fb;
-  -ms-flex-preferred-size: 300px;
-      flex-basis: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -836,9 +837,12 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-preferred-size: 300px;
+      flex-basis: 300px;
   -webkit-box-align: space-between;
       -ms-flex-align: space-between;
           align-items: space-between;
+  background: #f6f7fb;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -982,7 +986,7 @@ form {
             flex-direction: column;
   }
   .posts .post {
-    margin: 30px auto 0;
+    margin: 0 auto 30px;
     max-width: 70%;
     width: 90%;
     -webkit-box-align: center;
@@ -1101,7 +1105,7 @@ form {
     margin-top: 0;
   }
   .posts .post {
-    margin-top: 20px;
+    margin: 20px 0px;
     max-width: 100%;
     width: 100%;
     -webkit-box-align: start;
