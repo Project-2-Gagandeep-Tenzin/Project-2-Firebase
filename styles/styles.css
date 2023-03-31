@@ -469,7 +469,7 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 100px;
+  padding: 90px;
 }
 
 @media (max-width: 992px) {
@@ -1207,13 +1207,6 @@ footer .wrapper {
 .my-account ul a,
 .service ul a {
   color: #000;
-  -webkit-transition: linear 0.1s;
-  transition: linear 0.1s;
-}
-.links ul a:hover,
-.my-account ul a:hover,
-.service ul a:hover {
-  color: green;
 }
 
 .contact {
