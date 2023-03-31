@@ -220,7 +220,7 @@ header {
     }
   }
   // header-banner
-  .header-text {
+  .header-banner .header-text {
     margin: 50px 0 0 0;
     text-align: center;
     h2 {
@@ -259,6 +259,14 @@ header {
     // header-banner
     .header-img {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    #toggle:checked ~ .nav {
+      top: 150px;
     }
   }
 }

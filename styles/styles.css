@@ -557,17 +557,17 @@ header {
     background: #fff;
     width: 100%;
   }
-  .header-text {
+  .header-banner .header-text {
     margin: 50px 0 0 0;
     text-align: center;
   }
-  .header-text h2 {
+  .header-banner .header-text h2 {
     font-size: 24px;
   }
-  .header-text h1 {
+  .header-banner .header-text h1 {
     font-size: 36px;
   }
-  .header-text button {
+  .header-banner .header-text button {
     padding: 10px 12px;
     font-size: 12px;
   }
@@ -596,6 +596,11 @@ header {
   }
   .navbar .header-img {
     display: none;
+  }
+}
+@media (max-width: 320px) {
+  .navbar #toggle:checked ~ .nav {
+    top: 150px;
   }
 }
 .services {
