@@ -551,7 +551,7 @@ header {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
     position: absolute;
-    top: 120px;
+    top: 110px;
     left: 0;
     padding: 10px;
     background: #fff;
@@ -575,6 +575,11 @@ header {
     margin-bottom: 50px;
   }
 }
+@media (max-width: 420px) {
+  .navbar #toggle:checked ~ .nav {
+    top: 160px;
+  }
+}
 @media (max-width: 360px) {
   .top-bar .wrapper {
     -webkit-box-orient: vertical;
@@ -594,7 +599,7 @@ header {
   .navbar #toggle:checked ~ .nav {
     top: 130px;
   }
-  .navbar .header-img {
+  .header-img {
     display: none;
   }
 }
