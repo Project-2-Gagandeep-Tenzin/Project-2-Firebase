@@ -78,45 +78,46 @@ header {
 #toggle {
   display: none;
 }
-label {
-  display: inline-block;
-  width: 30px;
-  height: 20px;
-  position: relative;
-  cursor: pointer;
-  margin-top: 20px;
-  display: none;
-}
+.navbar {
+  label {
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none;
+  }
 
-label::before,
-label::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #000;
-  border-radius: 4px;
-}
+  label::before,
+  label::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+    border-radius: 4px;
+  }
 
-label::before {
-  top: 0;
-}
+  label::before {
+    top: 0;
+  }
 
-label::after {
-  bottom: 0;
-}
+  label::after {
+    bottom: 0;
+  }
 
-#toggle:checked + label::before {
-  transform: rotate(45deg);
-  top: 10px;
-}
+  #toggle:checked + label::before {
+    transform: rotate(45deg);
+    top: 10px;
+  }
 
-#toggle:checked + label::after {
-  transform: rotate(-45deg);
-  bottom: 10px;
+  #toggle:checked + label::after {
+    transform: rotate(-45deg);
+    bottom: 10px;
+  }
 }
-
 //**************************** BANNER SECTION - STYLE ******************************
 
 .header-banner {
@@ -203,20 +204,21 @@ label::after {
   .shopping-bag {
     display: none;
   }
-  label {
-    display: inline-block;
+  .navbar {
+    label {
+      display: inline-block;
+    }
+    #toggle:checked ~ .nav {
+      display: flex;
+      justify-content: space-evenly;
+      position: absolute;
+      top: 110px;
+      left: 0;
+      padding: 10px;
+      background: #fff;
+      width: 100%;
+    }
   }
-  #toggle:checked ~ .nav {
-    display: flex;
-    justify-content: space-evenly;
-    position: absolute;
-    top: 18%;
-    left: 0;
-    padding: 10px;
-    background: #fff;
-    width: 100%;
-  }
-
   // header-banner
   .header-text {
     margin: 50px 0 0 0;
@@ -250,11 +252,13 @@ label::after {
       justify-content: center;
     }
   }
-  #toggle:checked ~ .nav {
-    top: 21%;
-  }
-  // header-banner
-  .header-img {
-    display: none;
+  .navbar {
+    #toggle:checked ~ .nav {
+      top: 130px;
+    }
+    // header-banner
+    .header-img {
+      display: none;
+    }
   }
 }
