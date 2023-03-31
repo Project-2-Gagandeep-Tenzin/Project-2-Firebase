@@ -551,7 +551,7 @@ header {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
     position: absolute;
-    top: 110px;
+    top: 120px;
     left: 0;
     padding: 10px;
     background: #fff;
@@ -596,11 +596,6 @@ header {
   }
   .navbar .header-img {
     display: none;
-  }
-}
-@media (max-width: 340px) {
-  .navbar #toggle:checked ~ .nav {
-    top: 150px;
   }
 }
 .services {
