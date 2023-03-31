@@ -410,12 +410,49 @@ header {
   color: #fff;
 }
 
-.hamburger {
-  font-size: 28px;
-  margin-top: 16px;
-  text-decoration: none;
-  color: #000;
+#toggle {
   display: none;
+}
+
+label {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  margin-top: 20px;
+  display: none;
+}
+
+label::before,
+label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+label::before {
+  top: 0;
+}
+
+label::after {
+  bottom: 0;
+}
+
+#toggle:checked + label::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 10px;
+}
+
+#toggle:checked + label::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  bottom: 10px;
 }
 
 .header-banner {
@@ -508,8 +545,22 @@ header {
   .shopping-bag {
     display: none;
   }
-  .hamburger {
-    display: block;
+  label {
+    display: inline-block;
+  }
+  #toggle:checked ~ .nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    position: absolute;
+    top: 18%;
+    left: 0;
+    padding: 10px;
+    background: #fff;
+    width: 100%;
   }
   .header-text {
     margin: 50px 0 0 0;
@@ -544,6 +595,9 @@ header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  #toggle:checked ~ .nav {
+    top: 21%;
   }
   .header-img {
     display: none;
