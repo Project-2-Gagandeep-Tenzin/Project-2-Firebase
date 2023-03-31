@@ -212,7 +212,7 @@ header {
       display: flex;
       justify-content: space-evenly;
       position: absolute;
-      top: 110px;
+      top: 115px;
       left: 0;
       padding: 10px;
       background: #fff;
@@ -236,14 +236,6 @@ header {
   }
   .header-img {
     margin-bottom: 50px;
-  }
-}
-
-@media (max-width: 415px) {
-  .navbar {
-    #toggle:checked ~ .nav {
-      top: 150px;
-    }
   }
 }
 
