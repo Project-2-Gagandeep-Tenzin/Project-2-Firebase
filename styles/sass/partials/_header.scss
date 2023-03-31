@@ -239,10 +239,10 @@ header {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 415px) {
   .navbar {
     #toggle:checked ~ .nav {
-      top: 160px;
+      top: 150px;
     }
   }
 }
