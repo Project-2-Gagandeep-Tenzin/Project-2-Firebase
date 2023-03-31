@@ -600,7 +600,7 @@ header {
 }
 @media (max-width: 320px) {
   .navbar #toggle:checked ~ .nav {
-    top: 150px;
+    top: 180px;
   }
 }
 .services {
