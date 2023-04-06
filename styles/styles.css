@@ -410,44 +410,14 @@ header {
   color: #fff;
 }
 
-#toggle {
+.hamburger {
   display: none;
-}
-
-.navbar label {
-  display: inline-block;
-  width: 30px;
-  height: 20px;
-  position: relative;
-  cursor: pointer;
-  margin-top: 20px;
-  display: none;
-}
-.navbar label::before,
-.navbar label::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: #000;
-  border-radius: 4px;
-}
-.navbar label::before {
-  top: 0;
-}
-.navbar label::after {
-  bottom: 0;
-}
-.navbar #toggle:checked + label::before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  top: 10px;
-}
-.navbar #toggle:checked + label::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  bottom: 10px;
+  background: none;
+  color: #000;
+  border-radius: 0;
+  font-size: 30px;
+  padding: 4px;
+  margin-top: 10px;
 }
 
 .header-banner {
@@ -536,26 +506,45 @@ header {
   .top-bar .wrapper {
     font-size: 9px;
   }
-  .nav,
+  .navbar .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: relative;
+  }
+  .nav {
+    display: none;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .nav li {
+    margin-top: 20px;
+  }
   .shopping-bag {
     display: none;
+    margin: 10px 0px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
-  .navbar label {
-    display: inline-block;
+  .shopping-bag span {
+    left: 4%;
   }
-  .navbar #toggle:checked ~ .nav {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .nav-sm {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    position: absolute;
-    top: 115px;
-    left: 0;
-    padding: 10px;
-    background: #fff;
-    width: 100%;
   }
   .header-banner .header-text {
     margin: 50px 0 0 0;
@@ -590,9 +579,6 @@ header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-  .navbar #toggle:checked ~ .nav {
-    top: 130px;
   }
   .header-img {
     display: none;

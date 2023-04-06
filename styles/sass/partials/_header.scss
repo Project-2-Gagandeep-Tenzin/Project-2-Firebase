@@ -45,6 +45,7 @@ header {
 .logo {
   flex: 2 1 auto;
 }
+
 .nav {
   display: flex;
   justify-content: space-around;
@@ -75,49 +76,16 @@ header {
   }
 }
 
-#toggle {
+.hamburger {
   display: none;
+  background: none;
+  color: #000;
+  border-radius: 0;
+  font-size: 30px;
+  padding: 4px;
+  margin-top: 10px;
 }
-.navbar {
-  label {
-    display: inline-block;
-    width: 30px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-    margin-top: 20px;
-    display: none;
-  }
 
-  label::before,
-  label::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 4px;
-    background-color: #000;
-    border-radius: 4px;
-  }
-
-  label::before {
-    top: 0;
-  }
-
-  label::after {
-    bottom: 0;
-  }
-
-  #toggle:checked + label::before {
-    transform: rotate(45deg);
-    top: 10px;
-  }
-
-  #toggle:checked + label::after {
-    transform: rotate(-45deg);
-    bottom: 10px;
-  }
-}
 //**************************** BANNER SECTION - STYLE ******************************
 
 .header-banner {
@@ -200,25 +168,37 @@ header {
     font-size: 9px;
   }
   // navbar
-  .nav,
+  .navbar .wrapper {
+    flex-direction: column;
+    position: relative;
+  }
+
+  .nav {
+    display: none;
+    align-items: flex-start;
+    justify-content: space-between;
+    li {
+      margin-top: 20px;
+    }
+  }
   .shopping-bag {
     display: none;
-  }
-  .navbar {
-    label {
-      display: inline-block;
-    }
-    #toggle:checked ~ .nav {
-      display: flex;
-      justify-content: space-evenly;
-      position: absolute;
-      top: 115px;
-      left: 0;
-      padding: 10px;
-      background: #fff;
-      width: 100%;
+    margin: 10px 0px;
+    justify-content: flex-start;
+    span {
+      left: 4%;
     }
   }
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .nav-sm {
+    display: flex;
+  }
+
   // header-banner
   .header-banner .header-text {
     margin: 50px 0 0 0;
@@ -253,11 +233,7 @@ header {
       justify-content: center;
     }
   }
-  .navbar {
-    #toggle:checked ~ .nav {
-      top: 130px;
-    }
-  }
+
   // header-banner
   .header-img {
     display: none;
