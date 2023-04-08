@@ -84,29 +84,60 @@
             </ul>
           </div>
           <div class="contact-form">
-            <form action="#">
+            <form action="#" method="post">
               <div class="form-group">
                 <label for="first-name">First Name*</label>
-                <input type="text" name="first-name" required />
+                <input
+                  type="text"
+                  id="firstName"
+                  name="first-name"
+                  autocomplete="off"
+                />
+                <span class="error-msg"></span>
               </div>
               <div class="form-group">
                 <label for="last-name">Last Name*</label>
-                <input type="text" name="last-name" required />
+                <input
+                  type="text"
+                  id="lastName"
+                  name="last-name"
+                  autocomplete="off"
+                />
+                <span class="error-msg"></span>
               </div>
               <div class="form-group">
                 <label for="phone">Phone*</label>
-                <input type="phone" name="phone" required />
+                <input type="tel" id="phone" name="phone" autocomplete="off" />
+                <span class="error-msg"></span>
               </div>
               <div class="form-group">
                 <label for="email">Email*</label>
-                <input type="email" name="last-name" required />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autocomplete="off"
+                />
+                <span class="error-msg"></span>
               </div>
               <div class="form-group form-textarea">
                 <label for="message">Message</label>
-                <textarea name="message" id="" cols="3" rows="3"></textarea>
+                <textarea
+                  name="message"
+                  id="message"
+                  cols="3"
+                  rows="3"
+                  autocomplete="off"
+                ></textarea>
+                <span class="error-msg"></span>
               </div>
               <div class="form-btn">
-                <button type="button">POST COMMENT</button>
+                <input
+                  type="submit"
+                  id="submit"
+                  class="submit-button"
+                  value="POST COMMENT"
+                />
               </div>
             </form>
           </div>

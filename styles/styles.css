@@ -974,6 +974,12 @@ form {
   outline: none;
   border-bottom: 1px solid lightgrey;
 }
+.form-group .error-msg {
+  color: #ff3333;
+  margin-top: 10px;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
 
 .form-textarea {
   -ms-flex-preferred-size: 100%;
@@ -993,13 +999,18 @@ form {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.form-btn button {
+.form-btn .submit-button {
   border: 2px solid #9acd32;
   background-color: #9acd32;
   color: #fff;
   padding: 15px 25px;
   border-radius: 10px;
+  cursor: pointer;
   margin-bottom: 60px;
+}
+.form-btn .submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (max-width: 992px) {
@@ -1088,7 +1099,7 @@ form {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .contact-form .form-btn button {
+  .contact-form .form-btn .submit-button {
     margin-bottom: 10px;
   }
 }

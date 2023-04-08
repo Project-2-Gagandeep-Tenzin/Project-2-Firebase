@@ -285,11 +285,17 @@ form {
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid lightgrey;
+
     &:focus,
     :active {
       outline: none;
       border-bottom: 1px solid lightgrey;
     }
+  }
+  .error-msg {
+    color: #ff3333;
+    margin-top: 10px;
+    transition: opacity 0.3s ease;
   }
 }
 .form-textarea {
@@ -304,13 +310,18 @@ form {
   display: flex;
   justify-content: flex-end;
 
-  button {
+  .submit-button {
     border: 2px solid $primary;
     background-color: $primary;
     color: #fff;
     padding: 15px 25px;
     border-radius: 10px;
+    cursor: pointer;
     margin-bottom: 60px;
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 }
 
@@ -391,7 +402,7 @@ form {
     .form-btn {
       justify-content: center;
 
-      button {
+      .submit-button {
         margin-bottom: 10px;
       }
     }
