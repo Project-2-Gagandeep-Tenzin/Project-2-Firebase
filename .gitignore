@@ -2,3 +2,5 @@ node_modules
 **/.DS_Store
 *.pdf
 *.zip
+*contact.png
+*home.png

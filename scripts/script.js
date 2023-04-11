@@ -9,8 +9,8 @@ hamburger.addEventListener("click", () => {
 
 //Select inputs from query selector and store in respective variables.
 const formElement = document.querySelector("form");
-const firstNameElement = document.querySelector("#firstName");
-const lastNameElement = document.querySelector("#lastName");
+const firstNameElement = document.querySelector("#first-name");
+const lastNameElement = document.querySelector("#last-name");
 const phoneElement = document.querySelector("#phone");
 const emailElement = document.querySelector("#email");
 const messageElement = document.querySelector("#message");
@@ -36,8 +36,7 @@ let isFirstNameValid,
 // callback fn to validate every input element
 function validateForm(e) {
   const inputElement = e.target;
-
-  if (inputElement.id === "firstName") {
+  if (inputElement.id === "first-name") {
     if (inputElement.value === "") {
       errorMessages(inputElement, "First Name is required");
       isFirstNameValid = false;
@@ -45,9 +44,8 @@ function validateForm(e) {
       errorMessages(inputElement);
       isFirstNameValid = true;
     }
-    console.log(inputElement.value);
   }
-  if (inputElement.id === "lastName") {
+  if (inputElement.id === "last-name") {
     if (inputElement.value === "") {
       errorMessages(inputElement, "Last Name is required");
       islastNameValid = false;
