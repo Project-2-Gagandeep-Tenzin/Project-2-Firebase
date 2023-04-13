@@ -762,13 +762,18 @@ header {
           align-items: flex-start;
   max-width: 300px;
 }
+.collection-text p {
+  opacity: 0.7;
+}
 .collection-text h2 {
   font-size: 36px;
+  opacity: 0.7;
 }
 .collection-text button {
   font-size: small;
   margin-top: 10px;
   padding: 10px 20px;
+  opacity: 0.9;
 }
 
 .collection-sm {
@@ -1178,6 +1183,7 @@ footer {
   background-size: cover;
   padding-top: 30px;
   margin-top: 50px;
+  opacity: 0.9;
 }
 
 footer .wrapper {
