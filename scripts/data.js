@@ -1,0 +1,58 @@
+export const products = [
+  {
+    title: "American Marigold",
+    url: "assets/p2.jpeg",
+    icon: "assets/icons/cart.svg",
+    price: 23.45,
+    stock: 10,
+  },
+  {
+    title: "Blacked Eyed Susan",
+    url: "assets/p1.jpeg",
+    icon: "assets/icons/cart.svg",
+    price: 25.45,
+    stock: 10,
+  },
+  {
+    title: "Bleeding Heart",
+    url: "assets/p3.jpeg",
+    icon: "assets/icons/cart.svg",
+    price: 30.45,
+    stock: 10,
+  },
+  {
+    title: "Bloody Cranesbill",
+    url: "assets/p4.jpeg",
+    icon: "assets/icons/cart.svg",
+    price: 45.0,
+    stock: 10,
+  },
+  {
+    title: "Butterfly Weed",
+    url: "assets/p5.jpeg",
+    icon: "assets/icons/cart.svg",
+    price: 50.45,
+    stock: 10,
+  },
+  {
+    title: "Common Yarrow",
+    url: "assets/p6.jpeg",
+    icon: "assets/icons/cart.svg",
+    price: 65.0,
+    stock: 10,
+  },
+  {
+    title: "Double Viburnum",
+    url: "assets/p7.jpeg",
+    icon: "assets/icons/cart.svg",
+    price: 67.45,
+    stock: 10,
+  },
+  {
+    title: "Feather Reed Grass",
+    url: "assets/p8.jpeg",
+    icon: "assets/icons/cart.svg",
+    price: 20.0,
+    stock: 10,
+  },
+];
