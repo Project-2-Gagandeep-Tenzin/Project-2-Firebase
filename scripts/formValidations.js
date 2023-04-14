@@ -7,6 +7,7 @@ const emailElement = document.querySelector("#email");
 const messageElement = document.querySelector("#message");
 const submitButtonElement = document.querySelector("#submit");
 
+console.log(submitButtonElement);
 // Disable the submit button initially
 submitButtonElement.disabled = true;
 
