@@ -4,6 +4,8 @@ import {
   getDatabase,
   ref,
   set,
+  push,
+  update,
   onValue,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import { products } from "./data.js";
@@ -11,6 +13,9 @@ import { products } from "./data.js";
 // Step 1: Set up our FIREBASE database. This includes initializing our database and our dbRef.
 const database = getDatabase(app);
 const dbRef = ref(database);
+
+// If instead of the entire database (ie. the root of our database) we want to target a specific node in our database, we can call ref but pass it a second argument:
+const cartRef = ref(database, "/cart");
 
 // create a function to add our product data into firebase
 const addToDatabase = (key, value) => {
@@ -34,14 +39,15 @@ onValue(dbRef, (snapshot) => {
   displayItems(currentStocks);
 });
 
+// getting the ul which contains the product info
+const productsContainer = document.querySelector(".products-container");
+
 // creating a function that gets the data from firebase and add the the page
 const displayItems = (currentStocks) => {
-  // getting the ul which contains the product info
-  const productsContainer = document.querySelector(".products-container");
-  // emptying the ul 
+  // emptying the ul
   productsContainer.innerHTML = "";
   // looping through currentStocks array and passing item to a call back function
-  currentStocks.forEach((item) => {
+  currentStocks.forEach((item, index) => {
     // creating a new li
     const newListItem = document.createElement("li");
     // adding classes to li
@@ -50,7 +56,7 @@ const displayItems = (currentStocks) => {
     newListItem.innerHTML = `
     <div class="product">
     <img src=${item.url} alt="picture of ${item.title}" />
-    <img class="cart" src=${item.icon} alt="picture of shopping cart"  width="30" height="30" />
+    <img id="cart" class="cart" data-index="${index}" src=${item.icon} alt="picture of shopping cart"  width="30" height="30" />
     <p>${item.title}</p>
     <p>$${item.price}</p>
     </div>`;
@@ -59,3 +65,27 @@ const displayItems = (currentStocks) => {
     productsContainer.appendChild(newListItem);
   });
 };
+
+// ADDING PRODUCT TO CART AND REMOVE THAT PRODUCT INVENTORY BY 1
+
+// binding an click event listener to a productsContainer (UL tag) and take advantage of bubbling to monitor for clicks on the className cart <img>
+productsContainer.addEventListener("click", (e) => {
+  // if targeting element id is equal to cart then do something
+  if (e.target.id === "cart") {
+    // getting the index of speciifc item of products array and storing it into new variable
+    const itemIndex = e.target.getAttribute("data-index");
+    // at method of array return the selected item when we pass its index
+    let item = products.at(itemIndex);
+    // storing the items into cart database
+    push(cartRef, item);
+    // setting the custom ref for the position of clicked item in an products inventory
+    const productsInventoryRef = ref(
+      database,
+      `productsInventory/${itemIndex}` // like  productsInventory/0
+    );
+    //decreasing the number of stocks of the selected item
+    item.stock--;
+    // updating the stock of selected item
+    update(productsInventoryRef, item);
+  }
+});
