@@ -89,3 +89,14 @@ productsContainer.addEventListener("click", (e) => {
     update(productsInventoryRef, item);
   }
 });
+
+// SHOWING NO. OF ITEMS ON THE SHOPPING BAG
+// selecting the span tag (id:total-items) where we need to display no. of cart items
+const totalItems = document.querySelector("#total-items");
+// calling onValue function that will populate no. of items in cart whenever items new items added
+onValue(cartRef, (snapshot) => {
+  // storing the snapshot object into cart items
+  const cartItems = snapshot.val();
+  // converting the object into an array and finding the length and assigning to span tag
+  totalItems.innerHTML = Object.keys(cartItems).length;
+});
