@@ -86,6 +86,35 @@ header {
   margin-top: 10px;
 }
 
+//**************************** Shopping Cart Design - STYLE ************************
+
+.cartDesignContainer {
+  background: $primary;
+  border: 2px solid black;
+  position: absolute;
+  right: 50px;
+  width: 25%;
+  h2 {
+    text-align: center;
+    border-bottom: 2px solid black;
+  }
+  .cartInfo {
+    display: flex;
+    flex-direction: column;
+    .productInfo {
+      display: flex;
+      justify-content: space-between;
+      img {
+        width: 35%;
+      }
+      p {
+        position: relative;
+        right: 50px;
+        margin: 0;
+      }
+    }
+  }
+}
 //**************************** BANNER SECTION - STYLE ******************************
 
 .header-banner {
