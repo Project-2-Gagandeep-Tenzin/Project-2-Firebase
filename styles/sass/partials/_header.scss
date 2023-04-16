@@ -89,31 +89,102 @@ header {
 //**************************** Shopping Cart Design - STYLE ************************
 
 .cartDesignContainer {
-  background: $primary;
-  border: 2px solid black;
+  display: block;
+  background: #f8eee5;
+  border: 2px solid $primary;
   position: absolute;
   right: 50px;
   width: 25%;
+  z-index: 1;
   h2 {
     text-align: center;
-    border-bottom: 2px solid black;
+    margin: 10px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $primary;
   }
   .cartInfo {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    
     .productInfo {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 20px;
+
+      .productName {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      
       img {
         width: 35%;
       }
       p {
         position: relative;
-        right: 50px;
+        right: 20px;
         margin: 0;
+      }
+      i {
+        position: relative;
       }
     }
   }
+}
+
+.number {
+  position: relative;
+  right: 20px;
+  span {
+      cursor: pointer;
+  }
+  .minus,
+  .plus {
+    background: #f2f2f2;
+    border-radius: 4px;
+    padding: 8px 5px 8px 5px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+  }
+  input {
+    height: 34px;
+    width: 30px;
+    text-align: center;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+
+.subTotal,
+.taxTotal,
+.priceTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-bottom: 0;
+  margin-left: 25px;
+  margin-top: 0;
+
+  p {
+    margin: 2px 0;
+  }
+}
+.subTotal {
+  margin-top: 20px;
+}
+
+.cartButtons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
 }
 //**************************** BANNER SECTION - STYLE ******************************
 

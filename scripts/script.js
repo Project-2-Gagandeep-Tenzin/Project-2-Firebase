@@ -59,3 +59,13 @@ const displayItems = (currentStocks) => {
     productsContainer.appendChild(newListItem);
   });
 };
+
+
+const shoppingCartIcon = document.querySelector(".shopping-bag img");
+const shoppingCartItems = document.querySelector(".cartDesignContainer");
+console.log(shoppingCartIcon);
+console.log(shoppingCartItems);
+const displayItemsInCart = shoppingCartIcon.addEventListener('click', () => {
+  
+
+});
