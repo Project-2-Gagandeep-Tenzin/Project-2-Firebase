@@ -5,6 +5,7 @@ import {
   ref,
   set,
   push,
+  get,
   update,
   onValue,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
@@ -51,9 +52,9 @@ const displayItems = (productsInventory) => {
     // checking the condition if stock is available then show the add to icon to page with other elements
     if (item.stock > 0) {
       newListItem.innerHTML = `
-    <div class="product">
+    <div class="product" id=${index}>
       <img src=${item.url} alt="picture of ${item.title}" />
-      <img id="cart" class="cart" data-index="${index}" src=${
+      <img id="cart" class="cart" src=${
         item.icon
       } alt="picture of shopping cart"  width="30" height="30" />
       <p>${item.title}</p>
@@ -62,10 +63,10 @@ const displayItems = (productsInventory) => {
     } else {
       // if no stock then create new p element and add text out of stock and also hide add to cart icon
       newListItem.innerHTML = `
-    <div class="product no-stock">
+    <div class="product no-stock" id=${index}>
       <p class="no-stock-text">Out of Stock</p>
       <img src=${item.url} alt="picture of ${item.title}" />
-      <img id="cart" class="cart" data-index="${index}" src=${
+      <img id="cart" class="cart"  src=${
         item.icon
       } alt="picture of shopping cart"  width="30" height="30" >
       <p>${item.title}</p>
@@ -84,26 +85,31 @@ const displayItems = (productsInventory) => {
 productsContainer.addEventListener("click", (e) => {
   // if targeting element id is equal to cart then do something
   if (e.target.id === "cart") {
-    // getting the index of speciifc item of products array and storing it into new variable
-    const itemIndex = e.target.getAttribute("data-index");
-    // at method of array return the selected item when we pass its index
-    const item = products.at(itemIndex);
-    // checking if stock is not empty then pushed the item in to cart and deleting them from stocks
-    if (item.stock > 0) {
-      // storing the items into cart database
-      push(cartRef, item);
-      // setting the custom ref for the position of clicked item in an products inventory
-      const productsInventoryRef = ref(
-        database,
-        `productsInventory/${itemIndex}` // like  productsInventory/0
-      );
-      //decreasing the number of stocks of the selected item
-      item.stock--;
-      // updating the stock of selected item
-      update(productsInventoryRef, item);
-    }
+    // calling the addToCart fn and passes the parent element(div) with id as index(0 || 1 || 2 ...) of prodcutsInventory array)
+    addToCart(e.target.parentElement.id);
   }
 });
+
+const addToCart = (productItemIndex) => {
+  // pointing to particular node in list of productsInventory [0 || 1 || 2 || ...] based on selected parent element
+  const productsInventoryRef = ref(
+    database,
+    `productsInventory/${productItemIndex}` // like  productsInventory/0
+  );
+  // retrieving selected node from productsInventory list in firebase
+  get(productsInventoryRef).then((snapshot) => {
+    const productItem = snapshot.val();
+    // checking condition if stock is greater than 0
+    if (productItem.stock > 0) {
+      // push that speciifc item in to cart database
+      push(cartRef, productItem);
+      // updating the stock of that specific item
+      productItem.stock--;
+      // updating the sepcific item of productsInventory
+      update(productsInventoryRef, productItem);
+    }
+  });
+};
 
 // SHOWING NO. OF ITEMS ON THE SHOPPING BAG
 // selecting the span tag (id:total-items) where we need to display no. of cart items
@@ -112,6 +118,10 @@ const totalItems = document.querySelector("#total-items");
 onValue(cartRef, (snapshot) => {
   // storing the snapshot object into cart items
   const cartItems = snapshot.val();
-  // converting the object into an array and finding the length and assigning to span tag
-  totalItems.innerHTML = Object.keys(cartItems).length;
+  if (cartItems) {
+    // converting the object into an array and finding the length and assigning to span tag
+    totalItems.innerHTML = Object.keys(cartItems).length;
+  } else {
+    totalItems.innerHTML = 0;
+  }
 });
