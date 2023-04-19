@@ -432,12 +432,11 @@ header {
           flex-direction: column;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
-  background: white;
   position: absolute;
-  right: 50px;
+  background-color: #fff;
+  right: 5%;
   z-index: 1;
   width: 350px;
-  display: none;
 }
 .cartDesignContainer h2 {
   text-align: center;
@@ -463,7 +462,8 @@ header {
       justify-content: space-around;
   margin-top: 20px;
 }
-.cartDesignContainer .cartInfo .productInfo .productName {
+
+.productInfo .productName {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -476,18 +476,14 @@ header {
           justify-content: space-between;
   border: 1px sold black;
 }
-.cartDesignContainer .cartInfo .productInfo img {
-  width: 35%;
-  border: 1px sold black;
-}
-.cartDesignContainer .cartInfo .productInfo p {
+.productInfo .productName p {
   position: relative;
   right: 20px;
   margin: 0;
   border: 1px sold black;
 }
-.cartDesignContainer .cartInfo .productInfo i {
-  position: relative;
+.productInfo img {
+  width: 35%;
   border: 1px sold black;
 }
 

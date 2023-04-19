@@ -126,18 +126,21 @@ onValue(cartRef, (snapshot) => {
   }
 });
 
-// const shoppingCartIcon = document.querySelector(".shopping-bag img");
-// const shoppingCartItems = document.querySelector(".cartDesignContainer");
-// console.log(shoppingCartIcon);
-// console.log(shoppingCartItems);
-// shoppingCartIcon.addEventListener('click', (e) => {
-//   // shoppingCartItems.classList.toggle("cartDesignContainer");
-//   if (shoppingCartItems.style.display == '' || shoppingCartItems.style.display == 'none') {
-//     shoppingCartItems.style.display = 'block';
-//   } else {
-//     shoppingCartItems.style.display = 'none'
-//   }
-// });
+const shoppingCartIcon = document.querySelector(".shopping-bag img");
+const shoppingCartItems = document.querySelector(".cartDesignContainer");
+console.log(shoppingCartIcon);
+console.log(shoppingCartItems);
+shoppingCartIcon.addEventListener("click", (e) => {
+  // shoppingCartItems.classList.toggle("cartDesignContainer");
+  if (
+    shoppingCartItems.style.display == "" ||
+    shoppingCartItems.style.display == "none"
+  ) {
+    shoppingCartItems.style.display = "block";
+  } else {
+    shoppingCartItems.style.display = "none";
+  }
+});
 
 const quantityMinus = document.querySelector(".minus");
 const quantityPlus = document.querySelector(".plus");

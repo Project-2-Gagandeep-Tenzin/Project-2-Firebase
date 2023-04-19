@@ -93,16 +93,11 @@ header {
   display: flex;
   flex-direction: column;
   flex-basis: 25%;
-  background: grey;
-  // border: 2px solid $primary;
   position: absolute;
+  background-color: #fff;
   right: 5%;
   z-index: 1;
   width: 350px;
-  
-  border: 2px solid black;
-
-
   h2 {
     text-align: center;
     margin: 10px 0;
@@ -112,7 +107,7 @@ header {
   .cartInfo {
     display: flex;
     flex-direction: column;
-    
+
     .productInfo {
       display: flex;
       flex-wrap: wrap;
@@ -123,17 +118,16 @@ header {
 }
 
 .productInfo {
-
   .productName {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border: 1px sold black;
     p {
-        position: relative;
-        right: 20px;
-        margin: 0;
-        border: 1px sold black;
+      position: relative;
+      right: 20px;
+      margin: 0;
+      border: 1px sold black;
     }
   }
 
@@ -169,7 +163,6 @@ header {
     vertical-align: middle;
   }
 }
-
 
 .subTotal,
 .taxTotal,
