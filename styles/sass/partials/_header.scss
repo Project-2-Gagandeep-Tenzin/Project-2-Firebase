@@ -86,59 +86,67 @@ header {
   margin-top: 10px;
 }
 
-//**************************** Shopping Cart Design - STYLE ************************
+//******************* Shopping Cart Design - STYLE ************************
 
 .cartDesignContainer {
-  display: block;
-  background: #f8eee5;
-  border: 2px solid $primary;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  background: grey;
+  // border: 2px solid $primary;
   position: absolute;
-  right: 50px;
-  width: 25%;
+  right: 5%;
   z-index: 1;
+  width: 350px;
+  
+  border: 2px solid black;
+
+
   h2 {
     text-align: center;
     margin: 10px 0;
     padding-bottom: 10px;
-    border-bottom: 2px solid $primary;
+    // border-bottom: 2px solid $primary;
   }
   .cartInfo {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     
     .productInfo {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
       margin-top: 20px;
-
-      .productName {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      
-      img {
-        width: 35%;
-      }
-      p {
-        position: relative;
-        right: 20px;
-        margin: 0;
-      }
-      i {
-        position: relative;
-      }
     }
   }
 }
 
+.productInfo {
+
+  .productName {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px sold black;
+    p {
+        position: relative;
+        right: 20px;
+        margin: 0;
+        border: 1px sold black;
+    }
+  }
+
+  img {
+    width: 35%;
+    border: 1px sold black;
+  }
+}
 .number {
   position: relative;
   right: 20px;
   span {
-      cursor: pointer;
+    cursor: pointer;
   }
   .minus,
   .plus {

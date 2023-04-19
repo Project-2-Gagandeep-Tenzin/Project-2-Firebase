@@ -61,11 +61,53 @@ const displayItems = (currentStocks) => {
 };
 
 
-const shoppingCartIcon = document.querySelector(".shopping-bag img");
-const shoppingCartItems = document.querySelector(".cartDesignContainer");
-console.log(shoppingCartIcon);
-console.log(shoppingCartItems);
-const displayItemsInCart = shoppingCartIcon.addEventListener('click', () => {
-  
+// const shoppingCartIcon = document.querySelector(".shopping-bag img");
+// const shoppingCartItems = document.querySelector(".cartDesignContainer");
+// console.log(shoppingCartIcon);
+// console.log(shoppingCartItems);
+// shoppingCartIcon.addEventListener('click', (e) => {
+//   // shoppingCartItems.classList.toggle("cartDesignContainer");
+//   if (shoppingCartItems.style.display == '' || shoppingCartItems.style.display == 'none') {
+//     shoppingCartItems.style.display = 'block';
+//   } else {
+//     shoppingCartItems.style.display = 'none'
+//   }
+// });
 
+const quantityMinus = document.querySelector('.minus');
+const quantityPlus = document.querySelector('.plus');
+const quantityNumber = document.querySelector('.number input')
+
+// console.log(quantityNumber);
+// quantityMinus.forEach (minusButton => {
+//   minusButton.addEventListener('click', () => {
+//     console.log(quantityNumber.value);
+//     if (quantityNumber.value > 1 ) {
+//       quantityNumber.value --;
+//     } else {
+//       //get rid of item from cart
+//       console.log('item removed from cart');
+//     }
+//   });
+// });
+
+quantityMinus.addEventListener('click', () => {
+  if (quantityNumber.value > 1 ) {
+    quantityNumber.value --;
+  } else {
+    //get rid of item from cart
+    console.log('item removed from cart');
+  }
 });
+
+quantityPlus.addEventListener('click', () => {
+  if (quantityNumber.value < 10 /*change this to be quantity in stock later*/) {
+    quantityNumber.value ++;
+  } else {
+    //get rid of item from cart
+    console.log('No more quantity left');
+  }
+});
+
+
+

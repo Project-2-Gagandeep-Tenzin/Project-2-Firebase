@@ -421,19 +421,28 @@ header {
 }
 
 .cartDesignContainer {
-  display: block;
-  background: #f8eee5;
-  border: 2px solid #9acd32;
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  background: white;
   position: absolute;
   right: 50px;
-  width: 25%;
   z-index: 1;
+  width: 350px;
+  display: none;
 }
 .cartDesignContainer h2 {
   text-align: center;
   margin: 10px 0;
   padding-bottom: 10px;
-  border-bottom: 2px solid #9acd32;
 }
 .cartDesignContainer .cartInfo {
   display: -webkit-box;
@@ -448,6 +457,8 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-top: 20px;
@@ -463,17 +474,21 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border: 1px sold black;
 }
 .cartDesignContainer .cartInfo .productInfo img {
   width: 35%;
+  border: 1px sold black;
 }
 .cartDesignContainer .cartInfo .productInfo p {
   position: relative;
   right: 20px;
   margin: 0;
+  border: 1px sold black;
 }
 .cartDesignContainer .cartInfo .productInfo i {
   position: relative;
+  border: 1px sold black;
 }
 
 .number {
