@@ -189,18 +189,25 @@ shoppingCartIcon.addEventListener("click", (e) => {
 });
 
 
-
+const cartInfoUlElement = document.querySelector(".cart-info")
 
 onValue(dbRef, (snapshot) => {
   //store the snapshot value in a variable
   const ourSnapshot = snapshot.val();
   // getting the products list from our snapshot and storing in to productsInventory variable
   const cartInventory = ourSnapshot.cart;
+  if (cartInventory) {
+    displayCartItems(cartInventory);
+  } else {
+    const emptyCart = document.createElement('h2');
+    emptyCart.innerText = 'Is Empty';
+    cartInfoUlElement.append(emptyCart)
+  }
   // calling the displayItems function and passing the products to display on page
-  displayCartItems(cartInventory);
+  
 });
 
-const cartInfoUlElement = document.querySelector(".cart-info") 
+ 
 const checkoutPriceInfoElement = document.querySelector('.checkout-price-info')
 
 const displayCartItems = (cartInventory) => {
@@ -238,11 +245,13 @@ const displayCartItems = (cartInventory) => {
   const tax = Number((subTotal * 0.13).toFixed(2));
   const totalPrice = Number((subTotal + tax).toFixed(2));
   
+  checkoutPriceInfoElement.innerHTML = '';
+
   const subTotalDiv = document.createElement('div')
   subTotalDiv.classList.add('sub-total')
   subTotalDiv.innerHTML = `
   <p>Sub Total</p>
-  <p>$${subTotal}</p>
+  <p>$${subTotal.toFixed(2)}</p>
   `;
   checkoutPriceInfoElement.append(subTotalDiv);
 
