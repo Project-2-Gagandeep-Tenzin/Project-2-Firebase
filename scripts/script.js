@@ -88,6 +88,7 @@ productsContainer.addEventListener("click", (e) => {
   // if targeting element id is equal to cart then do something
   if (e.target.id === "cart") {
     // calling the addToCart fn and passes the parent element(div) with id as index(0 || 1 || 2 ...) of prodcutsInventory array)
+    console.log(e.target.parentElement.id);
     addToCart(e.target.parentElement.id);
   }
 });
@@ -173,7 +174,7 @@ onValue(cartRef, (snapshot) => {
 });
 
 const shoppingCartIcon = document.querySelector(".shopping-bag img");
-const shoppingCartItems = document.querySelector(".cartDesignContainer");
+const shoppingCartItems = document.querySelector(".cart-design-container");
 
 shoppingCartIcon.addEventListener("click", (e) => {
   // shoppingCartItems.classList.toggle("cartDesignContainer");
@@ -187,9 +188,81 @@ shoppingCartIcon.addEventListener("click", (e) => {
   }
 });
 
-const quantityMinus = document.querySelector(".minus");
-const quantityPlus = document.querySelector(".plus");
-const quantityNumber = document.querySelector(".number input");
+
+
+
+onValue(dbRef, (snapshot) => {
+  //store the snapshot value in a variable
+  const ourSnapshot = snapshot.val();
+  // getting the products list from our snapshot and storing in to productsInventory variable
+  const cartInventory = ourSnapshot.cart;
+  // calling the displayItems function and passing the products to display on page
+  displayCartItems(cartInventory);
+});
+
+const cartInfoUlElement = document.querySelector(".cart-info") 
+const checkoutPriceInfoElement = document.querySelector('.checkout-price-info')
+
+const displayCartItems = (cartInventory) => {
+  // emptying the ul
+  cartInfoUlElement.innerHTML = "";
+  let subTotal = 0;
+  // looping through currentStocks array and passing item to a call back function
+  for (let key in cartInventory) {
+    const cartItem = cartInventory[key];
+    // creating a new li
+    const newCartListItem = document.createElement("li");
+    // adding classes to li
+    newCartListItem.classList.add("product-info");
+    // populating the li with the right div, img, and p tags.
+    // checking the condition if stock is available then show the add to icon to page with other elements
+    newCartListItem.innerHTML = `
+    <img src=${cartItem.url} alt="picture of ${cartItem.title}" />
+    <div class = "product-name">
+      <p>${cartItem.title}</p>
+      <div class="number">
+        <span class="minus">-</span>
+        <input type="text" value="${cartItem.quantityInCart}" />
+        <span class="plus">+</span>
+      </div>
+      <p>$${(cartItem.price * cartItem.quantityInCart).toFixed(2)}</p>
+    </div>
+    <i>x</i>
+    `;
+
+    subTotal += (cartItem.price * cartItem.quantityInCart);
+    
+    cartInfoUlElement.appendChild(newCartListItem);
+  };
+  
+  const tax = Number((subTotal * 0.13).toFixed(2));
+  const totalPrice = Number((subTotal + tax).toFixed(2));
+  
+  const subTotalDiv = document.createElement('div')
+  subTotalDiv.classList.add('sub-total')
+  subTotalDiv.innerHTML = `
+  <p>Sub Total</p>
+  <p>$${subTotal}</p>
+  `;
+  checkoutPriceInfoElement.append(subTotalDiv);
+
+  const taxTotalDiv = document.createElement('div')
+  taxTotalDiv.classList.add('tax-total')
+  taxTotalDiv.innerHTML = `
+  <p>Tax</p>
+  <p>$${tax}</p>
+  `;
+  checkoutPriceInfoElement.append(taxTotalDiv);
+
+  const priceTotalDiv = document.createElement('div')
+  priceTotalDiv.classList.add('price-total')
+  priceTotalDiv.innerHTML = `
+  <p>Total Price</p>
+  <p>$${totalPrice}</p>
+  `;
+  checkoutPriceInfoElement.append(priceTotalDiv);
+}
+
 
 // console.log(quantityNumber);
 // quantityMinus.forEach (minusButton => {
@@ -204,20 +277,31 @@ const quantityNumber = document.querySelector(".number input");
 //   });
 // });
 
-quantityMinus.addEventListener("click", () => {
-  if (quantityNumber.value > 1) {
-    quantityNumber.value--;
-  } else {
-    //get rid of item from cart
-    console.log("item removed from cart");
-  }
-});
 
-quantityPlus.addEventListener("click", () => {
-  if (quantityNumber.value < 10 /*change this to be quantity in stock later*/) {
-    quantityNumber.value++;
-  } else {
-    //get rid of item from cart
-    console.log("No more quantity left");
-  }
-});
+// const quantityMinus = document.querySelector(".minus");
+// const quantityPlus = document.querySelector(".plus");
+// const quantityNumber = document.querySelector(".number input");
+
+// quantityMinus.addEventListener("click", () => {
+//   console.log('click');
+//   if (cartItem.quantityInCart > 1) {
+//     console.log(cartItem.quantityInCart);
+//     cartQuantityValue = cartItem.quantityInCart - 1;
+//     console.log(cartQuantityValue);
+//     update(cartItem/quantityInCart, cartQuantityValue);
+//     // decrease item quantity in cart and database
+//   } else {
+//     //get rid of item from cart
+//     alert("item removed from cart");
+//   }
+//   });
+
+// quantityPlus.addEventListener("click", () => {
+//   if (quantityNumber.value < 10 /*change this to be quantity in stock later*/) {
+//     quantityNumber.value++;
+//     // call addToCart(key(this should be the product number)); 
+//   } else {
+//     alert("No more quantity left");
+//   }
+// });
+
