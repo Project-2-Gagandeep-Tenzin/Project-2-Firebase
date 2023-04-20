@@ -115,14 +115,16 @@ const addToCart = (key) => {
           // checking if item already exist in the cart then update both product and cart
           if (cartSnapshot[key]) {
             // updating the sepcific item of productsInventory
-            update(productsInventoryRef, { stock: productItem.stock-- });
+            productItem.stock--;
+            update(productsInventoryRef, productItem);
             // updating the quantityInCart proerty of cart item
             update(cartItemRef, {
               quantityInCart: cartSnapshot[key].quantityInCart + 1,
             });
           } else {
             // if item not exist in the cart then add new item in cart and also update the productsInventory
-            update(productsInventoryRef, { stock: productItem.stock-- });
+            productItem.stock--;
+            update(productsInventoryRef, productItem);
             const cartItem = {
               title: productItem.title,
               url: productItem.url,
@@ -133,7 +135,8 @@ const addToCart = (key) => {
           }
         } else {
           // cart is empty then add new item in cart and also update the productsInventory
-          update(productsInventoryRef, { stock: productItem.stock-- });
+          productItem.stock--;
+          update(productsInventoryRef, productItem);
           const cartItem = {
             title: productItem.title,
             url: productItem.url,
