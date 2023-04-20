@@ -174,8 +174,7 @@ onValue(cartRef, (snapshot) => {
 
 const shoppingCartIcon = document.querySelector(".shopping-bag img");
 const shoppingCartItems = document.querySelector(".cartDesignContainer");
-console.log(shoppingCartIcon);
-console.log(shoppingCartItems);
+
 shoppingCartIcon.addEventListener("click", (e) => {
   // shoppingCartItems.classList.toggle("cartDesignContainer");
   if (
