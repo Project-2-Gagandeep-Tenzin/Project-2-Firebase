@@ -1,58 +1,58 @@
-export const products = [
-  {
+export const products = {
+  product1: {
     title: "American Marigold",
     url: "assets/p2.jpeg",
     icon: "assets/icons/cart.svg",
     price: 23.45,
     stock: 10,
   },
-  {
+  product2: {
     title: "Blacked Eyed Susan",
     url: "assets/p1.jpeg",
     icon: "assets/icons/cart.svg",
     price: 25.45,
     stock: 10,
   },
-  {
+  product3: {
     title: "Bleeding Heart",
     url: "assets/p3.jpeg",
     icon: "assets/icons/cart.svg",
     price: 30.45,
     stock: 10,
   },
-  {
+  product4: {
     title: "Bloody Cranesbill",
     url: "assets/p4.jpeg",
     icon: "assets/icons/cart.svg",
     price: 45.0,
     stock: 10,
   },
-  {
+  product5: {
     title: "Butterfly Weed",
     url: "assets/p5.jpeg",
     icon: "assets/icons/cart.svg",
     price: 50.45,
     stock: 10,
   },
-  {
+  product6: {
     title: "Common Yarrow",
     url: "assets/p6.jpeg",
     icon: "assets/icons/cart.svg",
     price: 65.0,
     stock: 10,
   },
-  {
+  product7: {
     title: "Double Viburnum",
     url: "assets/p7.jpeg",
     icon: "assets/icons/cart.svg",
     price: 67.45,
     stock: 10,
   },
-  {
+  product8: {
     title: "Feather Reed Grass",
     url: "assets/p8.jpeg",
     icon: "assets/icons/cart.svg",
     price: 20.0,
     stock: 10,
   },
-];
+};
