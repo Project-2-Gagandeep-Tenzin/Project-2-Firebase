@@ -7,6 +7,7 @@ import {
   get,
   update,
   onValue,
+  remove
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import { products } from "./data.js";
 
@@ -88,7 +89,6 @@ productsContainer.addEventListener("click", (e) => {
   // if targeting element id is equal to cart then do something
   if (e.target.id === "cart") {
     // calling the addToCart fn and passes the parent element(div) with id as index(0 || 1 || 2 ...) of prodcutsInventory array)
-    console.log(e.target.parentElement.id);
     addToCart(e.target.parentElement.id);
   }
 });
@@ -189,7 +189,7 @@ shoppingCartIcon.addEventListener("click", (e) => {
 });
 
 const cartInfoUlElement = document.querySelector(".cart-info");
-
+const checkoutPriceInfoElement = document.querySelector(".checkout-price-info");
 onValue(dbRef, (snapshot) => {
   //store the snapshot value in a variable
   const ourSnapshot = snapshot.val();
@@ -200,12 +200,13 @@ onValue(dbRef, (snapshot) => {
   } else {
     const emptyCart = document.createElement("h2");
     emptyCart.innerText = "Is Empty";
+    checkoutPriceInfoElement.innerHTML = '';
     cartInfoUlElement.append(emptyCart);
   }
   // calling the displayItems function and passing the products to display on page
 });
 
-const checkoutPriceInfoElement = document.querySelector(".checkout-price-info");
+
 
 const displayCartItems = (cartInventory) => {
   // emptying the ul
@@ -218,6 +219,7 @@ const displayCartItems = (cartInventory) => {
     const newCartListItem = document.createElement("li");
     // adding classes to li
     newCartListItem.classList.add("product-info");
+    newCartListItem.id = key
     // populating the li with the right div, img, and p tags.
     // checking the condition if stock is available then show the add to icon to page with other elements
     newCartListItem.innerHTML = `
@@ -235,7 +237,6 @@ const displayCartItems = (cartInventory) => {
     `;
 
     subTotal += cartItem.price * cartItem.quantityInCart;
-
     cartInfoUlElement.appendChild(newCartListItem);
   }
 
@@ -269,8 +270,8 @@ const displayCartItems = (cartInventory) => {
   checkoutPriceInfoElement.append(priceTotalDiv);
 };
 
-const numberElement = document.querySelector(".cart-info");
-numberElement.addEventListener("click", (e) => {
+const cartInfoElement = document.querySelector(".cart-info");
+cartInfoElement.addEventListener("click", (e) => {
   const key = e.target.parentElement.id;
   const cartItemRef = ref(database, `/cart/${key}`);
   get(cartItemRef).then((snapshot) => {
@@ -278,51 +279,49 @@ numberElement.addEventListener("click", (e) => {
     if (cartItemSnapshot) {
       if (e.target.className === "plus") {
         if (cartItemSnapshot.quantityInCart < 10) {
-          addToCart(e.target.parentElement.id);
+          addToCart(key);
         } else {
           alert(`No more quantity left for ${cartItemSnapshot.title} `);
         }
+      }
+      if (e.target.className === "minus") {
+        minusFromCart(key);
+      }
+      if (e.target.tagName === "I") {
+        removeProductFromCart(key);
+        alert('Removed item from cart')
       }
     }
   });
 });
 
-// console.log(quantityNumber);
-// quantityMinus.forEach (minusButton => {
-//   minusButton.addEventListener('click', () => {
-//     console.log(quantityNumber.value);
-//     if (quantityNumber.value > 1 ) {
-//       quantityNumber.value --;
-//     } else {
-//       //get rid of item from cart
-//       console.log('item removed from cart');
-//     }
-//   });
-// });
+const removeProductFromCart = (key) => {
+  const cartItemRef = ref(database, `/cart/${key}`);
+  remove(cartItemRef);
+  document.querySelector(`#${key}`).innerHTML = '';
+}
 
-// const quantityMinus = document.querySelector(".minus");
-// const quantityPlus = document.querySelector(".plus");
-// const quantityNumber = document.querySelector(".number input");
-
-// quantityMinus.addEventListener("click", () => {
-//   console.log('click');
-//   if (cartItem.quantityInCart > 1) {
-//     console.log(cartItem.quantityInCart);
-//     cartQuantityValue = cartItem.quantityInCart - 1;
-//     console.log(cartQuantityValue);
-//     update(cartItem/quantityInCart, cartQuantityValue);
-//     // decrease item quantity in cart and database
-//   } else {
-//     //get rid of item from cart
-//     alert("item removed from cart");
-//   }
-//   });
-
-// quantityPlus.addEventListener("click", () => {
-//   if (quantityNumber.value < 10 /*change this to be quantity in stock later*/) {
-//     quantityNumber.value++;
-//     // call addToCart(key(this should be the product number));
-//   } else {
-//     alert("No more quantity left");
-//   }
-// });
+const minusFromCart = (key) => {
+  const cartItemRef = ref(database, `/cart/${key}`);
+  const productItemRef = ref(database, `/productsInventory/${key}`)
+  get(productItemRef).then ((snapshot) => {
+    const productItemSnapshot = snapshot.val();
+    get (cartItemRef).then((snapshot) => {
+      const cartItemSnapshot = snapshot.val();
+      if (cartItemSnapshot) {
+        if (cartItemSnapshot.quantityInCart > 1) {
+          cartItemSnapshot.quantityInCart--;
+          update(cartItemRef, cartItemSnapshot);
+          productItemSnapshot.stock++;
+          update(productItemRef, productItemSnapshot);
+        } else {
+          productItemSnapshot.stock++;
+          update(productItemRef, productItemSnapshot);
+          remove(cartItemRef);
+          document.querySelector(`#${key}`).innerHTML = '';
+          alert('Removed item from cart')
+        }
+      }
+    });
+  });
+}
