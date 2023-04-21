@@ -188,8 +188,7 @@ shoppingCartIcon.addEventListener("click", (e) => {
   }
 });
 
-
-const cartInfoUlElement = document.querySelector(".cart-info")
+const cartInfoUlElement = document.querySelector(".cart-info");
 
 onValue(dbRef, (snapshot) => {
   //store the snapshot value in a variable
@@ -199,16 +198,14 @@ onValue(dbRef, (snapshot) => {
   if (cartInventory) {
     displayCartItems(cartInventory);
   } else {
-    const emptyCart = document.createElement('h2');
-    emptyCart.innerText = 'Is Empty';
-    cartInfoUlElement.append(emptyCart)
+    const emptyCart = document.createElement("h2");
+    emptyCart.innerText = "Is Empty";
+    cartInfoUlElement.append(emptyCart);
   }
   // calling the displayItems function and passing the products to display on page
-  
 });
 
- 
-const checkoutPriceInfoElement = document.querySelector('.checkout-price-info')
+const checkoutPriceInfoElement = document.querySelector(".checkout-price-info");
 
 const displayCartItems = (cartInventory) => {
   // emptying the ul
@@ -227,9 +224,9 @@ const displayCartItems = (cartInventory) => {
     <img src=${cartItem.url} alt="picture of ${cartItem.title}" />
     <div class = "product-name">
       <p>${cartItem.title}</p>
-      <div class="number">
+      <div class="number" id=${key}>
         <span class="minus">-</span>
-        <input type="text" value="${cartItem.quantityInCart}" />
+        <input type="text" value="${cartItem.quantityInCart}" disabled/>
         <span class="plus">+</span>
       </div>
       <p>$${(cartItem.price * cartItem.quantityInCart).toFixed(2)}</p>
@@ -237,41 +234,58 @@ const displayCartItems = (cartInventory) => {
     <i>x</i>
     `;
 
-    subTotal += (cartItem.price * cartItem.quantityInCart);
-    
+    subTotal += cartItem.price * cartItem.quantityInCart;
+
     cartInfoUlElement.appendChild(newCartListItem);
-  };
-  
+  }
+
   const tax = Number((subTotal * 0.13).toFixed(2));
   const totalPrice = Number((subTotal + tax).toFixed(2));
-  
-  checkoutPriceInfoElement.innerHTML = '';
 
-  const subTotalDiv = document.createElement('div')
-  subTotalDiv.classList.add('sub-total')
+  checkoutPriceInfoElement.innerHTML = "";
+
+  const subTotalDiv = document.createElement("div");
+  subTotalDiv.classList.add("sub-total");
   subTotalDiv.innerHTML = `
   <p>Sub Total</p>
   <p>$${subTotal.toFixed(2)}</p>
   `;
   checkoutPriceInfoElement.append(subTotalDiv);
 
-  const taxTotalDiv = document.createElement('div')
-  taxTotalDiv.classList.add('tax-total')
+  const taxTotalDiv = document.createElement("div");
+  taxTotalDiv.classList.add("tax-total");
   taxTotalDiv.innerHTML = `
   <p>Tax</p>
   <p>$${tax}</p>
   `;
   checkoutPriceInfoElement.append(taxTotalDiv);
 
-  const priceTotalDiv = document.createElement('div')
-  priceTotalDiv.classList.add('price-total')
+  const priceTotalDiv = document.createElement("div");
+  priceTotalDiv.classList.add("price-total");
   priceTotalDiv.innerHTML = `
   <p>Total Price</p>
   <p>$${totalPrice}</p>
   `;
   checkoutPriceInfoElement.append(priceTotalDiv);
-}
+};
 
+const numberElement = document.querySelector(".cart-info");
+numberElement.addEventListener("click", (e) => {
+  const key = e.target.parentElement.id;
+  const cartItemRef = ref(database, `/cart/${key}`);
+  get(cartItemRef).then((snapshot) => {
+    const cartItemSnapshot = snapshot.val();
+    if (cartItemSnapshot) {
+      if (e.target.className === "plus") {
+        if (cartItemSnapshot.quantityInCart < 10) {
+          addToCart(e.target.parentElement.id);
+        } else {
+          alert(`No more quantity left for ${cartItemSnapshot.title} `);
+        }
+      }
+    }
+  });
+});
 
 // console.log(quantityNumber);
 // quantityMinus.forEach (minusButton => {
@@ -285,7 +299,6 @@ const displayCartItems = (cartInventory) => {
 //     }
 //   });
 // });
-
 
 // const quantityMinus = document.querySelector(".minus");
 // const quantityPlus = document.querySelector(".plus");
@@ -308,9 +321,8 @@ const displayCartItems = (cartInventory) => {
 // quantityPlus.addEventListener("click", () => {
 //   if (quantityNumber.value < 10 /*change this to be quantity in stock later*/) {
 //     quantityNumber.value++;
-//     // call addToCart(key(this should be the product number)); 
+//     // call addToCart(key(this should be the product number));
 //   } else {
 //     alert("No more quantity left");
 //   }
 // });
-
