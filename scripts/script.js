@@ -7,7 +7,7 @@ import {
   get,
   update,
   onValue,
-  remove
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import { products } from "./data.js";
 
@@ -190,23 +190,23 @@ shoppingCartIcon.addEventListener("click", (e) => {
 
 const cartInfoUlElement = document.querySelector(".cart-info");
 const checkoutPriceInfoElement = document.querySelector(".checkout-price-info");
+const cartButtons = document.querySelector(".cart-buttons");
+const cartHeading = document.querySelector(".cart-heading");
 onValue(dbRef, (snapshot) => {
   //store the snapshot value in a variable
   const ourSnapshot = snapshot.val();
   // getting the products list from our snapshot and storing in to productsInventory variable
   const cartInventory = ourSnapshot.cart;
   if (cartInventory) {
+    cartHeading.innerHTML = `Your cart`;
     displayCartItems(cartInventory);
   } else {
-    const emptyCart = document.createElement("h2");
-    emptyCart.innerText = "Is Empty";
-    checkoutPriceInfoElement.innerHTML = '';
-    cartInfoUlElement.append(emptyCart);
+    cartHeading.innerHTML = `🙁 Your cart is empty 🙁`;
+    cartButtons.innerHTML = "";
+    checkoutPriceInfoElement.innerHTML = "";
   }
   // calling the displayItems function and passing the products to display on page
 });
-
-
 
 const displayCartItems = (cartInventory) => {
   // emptying the ul
@@ -219,7 +219,7 @@ const displayCartItems = (cartInventory) => {
     const newCartListItem = document.createElement("li");
     // adding classes to li
     newCartListItem.classList.add("product-info");
-    newCartListItem.id = key
+    newCartListItem.id = key;
     // populating the li with the right div, img, and p tags.
     // checking the condition if stock is available then show the add to icon to page with other elements
     newCartListItem.innerHTML = `
@@ -233,7 +233,7 @@ const displayCartItems = (cartInventory) => {
       </div>
       <p>$${(cartItem.price * cartItem.quantityInCart).toFixed(2)}</p>
     </div>
-    <i>x</i>
+    <i>&#x2715</i>
     `;
 
     subTotal += cartItem.price * cartItem.quantityInCart;
@@ -268,6 +268,11 @@ const displayCartItems = (cartInventory) => {
   <p>$${totalPrice}</p>
   `;
   checkoutPriceInfoElement.append(priceTotalDiv);
+
+  cartButtons.innerHTML = `
+  <button>Cart</button>
+  <button>Checkout</button>
+  `;
 };
 
 const cartInfoElement = document.querySelector(".cart-info");
@@ -289,7 +294,7 @@ cartInfoElement.addEventListener("click", (e) => {
       }
       if (e.target.tagName === "I") {
         removeProductFromCart(key);
-        alert('Removed item from cart')
+        alert("Removed item from cart");
       }
     }
   });
@@ -298,15 +303,15 @@ cartInfoElement.addEventListener("click", (e) => {
 const removeProductFromCart = (key) => {
   const cartItemRef = ref(database, `/cart/${key}`);
   remove(cartItemRef);
-  document.querySelector(`#${key}`).innerHTML = '';
-}
+  document.querySelector(`#${key}`).innerHTML = "";
+};
 
 const minusFromCart = (key) => {
   const cartItemRef = ref(database, `/cart/${key}`);
-  const productItemRef = ref(database, `/productsInventory/${key}`)
-  get(productItemRef).then ((snapshot) => {
+  const productItemRef = ref(database, `/productsInventory/${key}`);
+  get(productItemRef).then((snapshot) => {
     const productItemSnapshot = snapshot.val();
-    get (cartItemRef).then((snapshot) => {
+    get(cartItemRef).then((snapshot) => {
       const cartItemSnapshot = snapshot.val();
       if (cartItemSnapshot) {
         if (cartItemSnapshot.quantityInCart > 1) {
@@ -318,10 +323,10 @@ const minusFromCart = (key) => {
           productItemSnapshot.stock++;
           update(productItemRef, productItemSnapshot);
           remove(cartItemRef);
-          document.querySelector(`#${key}`).innerHTML = '';
-          alert('Removed item from cart')
+          document.querySelector(`#${key}`).innerHTML = "";
+          alert("Removed item from cart");
         }
       }
     });
   });
-}
+};

@@ -400,6 +400,7 @@ header {
 }
 .shopping-bag img {
   margin: 16px 10px 0 0;
+  cursor: pointer;
 }
 .shopping-bag span {
   position: absolute;
@@ -439,7 +440,7 @@ header {
   width: 350px;
   display: none;
 }
-.cart-design-container h2 {
+.cart-design-container .cart-heading {
   text-align: center;
   margin-top: 20px;
 }
@@ -451,7 +452,8 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 300px;
+  height: auto;
+  max-height: 300px;
   overflow-y: auto;
 }
 .cart-design-container .cart-info .product-info {
@@ -479,18 +481,18 @@ header {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  border: 1px sold black;
   width: 35%;
 }
 .product-info .product-name p {
   position: relative;
   right: 20px;
   margin: 0;
-  border: 1px sold black;
 }
 .product-info img {
   width: 35%;
-  border: 1px sold black;
+}
+.product-info i {
+  cursor: pointer;
 }
 
 .number {
