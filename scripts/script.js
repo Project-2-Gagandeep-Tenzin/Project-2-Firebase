@@ -1,43 +1,34 @@
-import { toggleMenu } from "./toggleMenu.js";
-import { toggleCart } from "./toggleCart.js";
-import app from "./firebase.js";
+import { toggleMenu, toggleCart } from "./toggleFn.js";
 import {
-  getDatabase,
   ref,
-  set,
   get,
   onValue,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-import { products } from "./data.js";
-import { productsContainer, displayItems } from "./displayProducts.js";
-import { cartRef, addToCart } from "./addToCart.js";
 import {
-  displayCartItems,
+  database,
+  productsInventoryRef,
+  productsContainer,
+  displayItems,
+} from "./products.js";
+
+import {
+  cartRef,
+  addToCart,
+  cartInfoElement,
+  displayCart,
   displayTotalSize,
-  cartHeading,
-  cartButtons,
-  checkoutPriceInfoElement,
-} from "./displayCart.js";
-import { minusFromCart, removeProductFromCart } from "./removeFromCart.js";
+  emptyCart,
+  updateItemFromCart,
+  removeProductFromCart,
+} from "./cart.js";
 
-const database = getDatabase(app);
-const productsInventoryRef = ref(database, "/productsInventory");
-
-// Added list of products into firebase
-const addToDatabase = (key, value) => {
-  const customRef = ref(database, key);
-  set(customRef, value);
-};
-
-addToDatabase("productsInventory", products);
-
-// displayed list of products in to page
+// using onvalue to display list of products on page and populate them on every change
 onValue(productsInventoryRef, (snapshot) => {
   const productsInventory = snapshot.val();
   displayItems(productsInventory);
 });
 
-// ADDING PRODUCT TO CART AND REMOVE THAT PRODUCT FROM INVENTORY
+// Adding products in to cart and updating stock in products inventory
 productsContainer.addEventListener("click", (e) => {
   // if targeting element id is equal to cart then do something
   if (e.target.id === "cart") {
@@ -45,23 +36,19 @@ productsContainer.addEventListener("click", (e) => {
   }
 });
 
-// SHOWING THE TOTAL ITEMS IN CART SYSTEM
+// Showing the list of items on cart widget
 onValue(cartRef, (snapshot) => {
   const cartItems = snapshot.val();
   displayTotalSize(cartItems);
   if (cartItems) {
-    cartHeading.innerHTML = `Your cart`;
-    displayCartItems(cartItems);
+    displayCart(cartItems);
   } else {
-    cartHeading.innerHTML = `🙁 Your cart is empty 🙁`;
-    cartInfoElement.innerHTML = "";
-    checkoutPriceInfoElement.innerHTML = "";
-    cartButtons.innerHTML = "";
+    emptyCart();
   }
 });
 
-// EVENT LISTENER TO UPDATE THE PRODUCTS AND CART ITEMS IN CART
-const cartInfoElement = document.querySelector(".cart-info");
+/* binding the event listener to cart info element which is the parent element of cart items and with the the bubbling effect,
+can modifiy the items present in the cart  */
 cartInfoElement.addEventListener("click", (e) => {
   const key = e.target.parentElement.id;
   const cartItemRef = ref(database, `/cart/${key}`);
@@ -78,7 +65,7 @@ cartInfoElement.addEventListener("click", (e) => {
       }
       if (e.target.className === "minus") {
         // when user want to reduce the quantity of products
-        minusFromCart(key);
+        updateItemFromCart(key);
       }
       if (e.target.tagName === "I") {
         removeProductFromCart(key);

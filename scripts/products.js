@@ -1,4 +1,22 @@
+import app from "./firebase.js";
+import {
+  getDatabase,
+  ref,
+  set,
+} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+import { products } from "./data.js";
+
+export const database = getDatabase(app);
+
+export const productsInventoryRef = ref(database, "/productsInventory");
 export const productsContainer = document.querySelector(".products-container");
+
+// Adding list of products into firebase
+export const addToDatabase = (key, value) => {
+  const customRef = ref(database, key);
+  set(customRef, value);
+};
+addToDatabase("productsInventory", products);
 
 // Displayed list of products on a page
 export const displayItems = (productsInventory) => {
