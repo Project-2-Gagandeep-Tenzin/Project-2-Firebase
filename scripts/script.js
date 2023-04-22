@@ -1,4 +1,4 @@
-import { toggleMenu, toggleCart } from "./toggleFn.js";
+import { toggleCart } from "./cartToggle.js";
 import {
   ref,
   get,

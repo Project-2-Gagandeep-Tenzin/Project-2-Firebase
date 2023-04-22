@@ -7,7 +7,6 @@ const emailElement = document.querySelector("#email");
 const messageElement = document.querySelector("#message");
 const submitButtonElement = document.querySelector("#submit");
 
-console.log(submitButtonElement);
 // Disable the submit button initially
 submitButtonElement.disabled = true;
 
@@ -26,7 +25,7 @@ let isFirstNameValid,
   isMessageValid = false;
 
 // callback fn to validate every input element
-export function validateForm(e) {
+function validateForm(e) {
   const inputElement = e.target;
   if (inputElement.id === "first-name") {
     if (inputElement.value === "") {
