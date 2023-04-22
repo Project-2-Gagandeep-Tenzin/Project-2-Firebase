@@ -11,47 +11,37 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import { products } from "./data.js";
 
-// Step 1: Set up our FIREBASE database. This includes initializing our database and our dbRef.
 const database = getDatabase(app);
 const dbRef = ref(database);
-
-// If instead of the entire database (ie. the root of our database) we want to target a specific node in our database, we can call ref but pass it a second argument:
 const cartRef = ref(database, "/cart");
 
-// create a function to add our product data into firebase
+const productsContainer = document.querySelector(".products-container");
+
+// Added list of products into firebase
 const addToDatabase = (key, value) => {
   const customRef = ref(database, key);
   set(customRef, value);
 };
-// calling a function, naming the key 'productsInventory' and passing list of products
+
 addToDatabase("productsInventory", products);
-// call onValue function that empty our ul and populate that data from firebase
+
+// displayed list of products in to page
 onValue(dbRef, (snapshot) => {
-  //store the snapshot value in a variable
   const ourSnapshot = snapshot.val();
-  // getting the products list from our snapshot and storing in to productsInventory variable
   const productsInventory = ourSnapshot.productsInventory;
-  // calling the displayItems function and passing the products to display on page
   displayItems(productsInventory);
 });
 
-// getting the ul which contains the product info
-const productsContainer = document.querySelector(".products-container");
-
-// creating a function that gets the data from firebase and add the the page
+// Displayed list of products on a page
 const displayItems = (productsInventory) => {
-  // emptying the ul
   productsContainer.innerHTML = "";
-  // looping through currentStocks array and passing item to a call back function
-  // productsInventory.forEach((item, index) => {
+
   for (let key in productsInventory) {
     const item = productsInventory[key];
-    // creating a new li
+    // created new li element which contains specific product
     const newListItem = document.createElement("li");
-    // adding classes to li
     newListItem.classList.add("products-list", "hvr-float");
-    // populating the li with the right div, img, and p tags.
-    // checking the condition if stock is available then show the add to icon to page with other elements
+    // checked if product item exists in inventory
     if (item.stock > 0) {
       newListItem.innerHTML = `
       <div class="product" id=${key}>
@@ -63,7 +53,7 @@ const displayItems = (productsInventory) => {
         <p>$${item.price.toFixed(2)}</p>
       </div>`;
     } else {
-      // if no stock then create new p element and add text out of stock and also hide add to cart icon
+      // display this list when item is out of stock
       newListItem.innerHTML = `
       <div class="product no-stock" id=${key}>
         <p class="no-stock-text">Out of Stock</p>
@@ -75,50 +65,34 @@ const displayItems = (productsInventory) => {
         <p>$${item.price.toFixed(2)}</p>
       </div>`;
     }
-    // adding our new li into the ul tag
+    // Appended new li into the ul tag
     productsContainer.appendChild(newListItem);
   }
-  // });
-  // }
 };
 
 // ADDING PRODUCT TO CART AND REMOVE THAT PRODUCT FROM INVENTORY
-
-// binding an click event listener to a productsContainer (UL tag) and take advantage of bubbling to monitor for clicks on the className cart <img>
 productsContainer.addEventListener("click", (e) => {
   // if targeting element id is equal to cart then do something
   if (e.target.id === "cart") {
-    // calling the addToCart fn and passes the parent element(div) with id as index(0 || 1 || 2 ...) of prodcutsInventory array)
     addToCart(e.target.parentElement.id);
   }
 });
 
 const addToCart = (key) => {
-  // pointing to particular node in list of productsInventory [0 || 1 || 2 || ...] based on selected parent element
-  const productsInventoryRef = ref(
-    database,
-    `productsInventory/${key}` // like  productsInventory/0
-  );
+  const productsInventoryRef = ref(database, `productsInventory/${key}`);
+  const cartItemRef = ref(database, `/cart/${key}`);
 
   // retrieving selected node from productsInventory list in firebase
   get(productsInventoryRef).then((snapshot) => {
     const productItem = snapshot.val();
-    // pointing to hhe speciifc item of the cart
-    const cartItemRef = ref(database, `/cart/${key}`);
-
-    // checking condition if stock is greater than 0
     if (productItem.stock > 0) {
-      // getting the specific item from the cart
       get(cartRef).then((snapshot) => {
         const cartSnapshot = snapshot.val();
-        // checking if cartSnapshot exist
         if (cartSnapshot) {
           // checking if item already exist in the cart then update both product and cart
           if (cartSnapshot[key]) {
-            // updating the sepcific item of productsInventory
             productItem.stock--;
             update(productsInventoryRef, productItem);
-            // updating the quantityInCart proerty of cart item
             update(cartItemRef, {
               quantityInCart: cartSnapshot[key].quantityInCart + 1,
             });
@@ -151,33 +125,10 @@ const addToCart = (key) => {
   });
 };
 
-// SHOWING NO. OF ITEMS ON THE SHOPPING BAG
-// selecting the span tag (id:total-items) where we need to display no. of cart items
-const totalItems = document.querySelector("#total-items");
-// calling onValue function that will populate no. of items in cart whenever items new items added
-onValue(cartRef, (snapshot) => {
-  // storing the snapshot object into cart items
-  const cartItems = snapshot.val();
-  let totalItemsInCart = 0;
-  // calculating the no. of items using for in loop
-  for (let key in cartItems) {
-    totalItemsInCart += cartItems[key].quantityInCart;
-  }
-
-  if (cartItems) {
-    // assigning the total length of items to span tag
-    totalItems.innerHTML = totalItemsInCart;
-  } else {
-    // when no items in cart, assign zero to span tag
-    totalItems.innerHTML = 0;
-  }
-});
-
 const shoppingCartIcon = document.querySelector(".shopping-bag img");
 const shoppingCartItems = document.querySelector(".cart-design-container");
 
 shoppingCartIcon.addEventListener("click", (e) => {
-  // shoppingCartItems.classList.toggle("cartDesignContainer");
   if (
     shoppingCartItems.style.display == "" ||
     shoppingCartItems.style.display == "none"
@@ -192,25 +143,41 @@ const cartInfoUlElement = document.querySelector(".cart-info");
 const checkoutPriceInfoElement = document.querySelector(".checkout-price-info");
 const cartButtons = document.querySelector(".cart-buttons");
 const cartHeading = document.querySelector(".cart-heading");
-onValue(dbRef, (snapshot) => {
-  //store the snapshot value in a variable
-  const ourSnapshot = snapshot.val();
-  // getting the products list from our snapshot and storing in to productsInventory variable
-  const cartInventory = ourSnapshot.cart;
-  if (cartInventory) {
+
+onValue(cartRef, (snapshot) => {
+  const cartItems = snapshot.val();
+  if (cartItems) {
     cartHeading.innerHTML = `Your cart`;
-    displayCartItems(cartInventory);
+    displayTotalSize(cartItems);
+    displayCartItems(cartItems);
+    displayTaxInfo(cartItems);
   } else {
     cartHeading.innerHTML = `🙁 Your cart is empty 🙁`;
     cartButtons.innerHTML = "";
     checkoutPriceInfoElement.innerHTML = "";
   }
-  // calling the displayItems function and passing the products to display on page
 });
 
+// showing the total length of items
+const totalItems = document.querySelector("#total-items");
+const displayTotalSize = (cartItems) => {
+  let totalItemsInCart = 0;
+  for (let key in cartItems) {
+    totalItemsInCart += cartItems[key].quantityInCart;
+  }
+  if (cartItems) {
+    // assigning the total length of items to span tag
+    totalItems.innerHTML = totalItemsInCart;
+  } else {
+    // when no items in cart, assign zero to span tag
+    totalItems.innerHTML = 0;
+  }
+};
+
 const displayCartItems = (cartInventory) => {
-  // emptying the ul
   cartInfoUlElement.innerHTML = "";
+  checkoutPriceInfoElement.innerHTML = "";
+
   let subTotal = 0;
   // looping through currentStocks array and passing item to a call back function
   for (let key in cartInventory) {
@@ -235,7 +202,6 @@ const displayCartItems = (cartInventory) => {
     </div>
     <i>&#x2715</i>
     `;
-
     subTotal += cartItem.price * cartItem.quantityInCart;
     cartInfoUlElement.appendChild(newCartListItem);
   }
@@ -243,15 +209,12 @@ const displayCartItems = (cartInventory) => {
   const tax = Number((subTotal * 0.13).toFixed(2));
   const totalPrice = Number((subTotal + tax).toFixed(2));
 
-  checkoutPriceInfoElement.innerHTML = "";
-
   const subTotalDiv = document.createElement("div");
   subTotalDiv.classList.add("sub-total");
   subTotalDiv.innerHTML = `
   <p>Sub Total</p>
   <p>$${subTotal.toFixed(2)}</p>
   `;
-  checkoutPriceInfoElement.append(subTotalDiv);
 
   const taxTotalDiv = document.createElement("div");
   taxTotalDiv.classList.add("tax-total");
@@ -259,7 +222,6 @@ const displayCartItems = (cartInventory) => {
   <p>Tax</p>
   <p>$${tax}</p>
   `;
-  checkoutPriceInfoElement.append(taxTotalDiv);
 
   const priceTotalDiv = document.createElement("div");
   priceTotalDiv.classList.add("price-total");
@@ -267,11 +229,11 @@ const displayCartItems = (cartInventory) => {
   <p>Total Price</p>
   <p>$${totalPrice}</p>
   `;
-  checkoutPriceInfoElement.append(priceTotalDiv);
 
+  checkoutPriceInfoElement.append(subTotalDiv, taxTotalDiv, priceTotalDiv);
   cartButtons.innerHTML = `
-  <button>Cart</button>
-  <button>Checkout</button>
+      <button>Cart</button>
+      <button>Checkout</button>
   `;
 };
 
