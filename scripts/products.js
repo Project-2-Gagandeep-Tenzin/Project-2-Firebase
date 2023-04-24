@@ -6,7 +6,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import { products } from "./data.js";
 
-export const database = getDatabase(app);
+const database = getDatabase(app);
 
 export const productsInventoryRef = ref(database, "/productsInventory");
 export const productsContainer = document.querySelector(".products-container");

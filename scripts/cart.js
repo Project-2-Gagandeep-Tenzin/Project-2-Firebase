@@ -8,7 +8,7 @@ import {
   remove,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
-const database = getDatabase(app);
+export const database = getDatabase(app);
 export const cartRef = ref(database, "/cart");
 
 // Selecting elements from page

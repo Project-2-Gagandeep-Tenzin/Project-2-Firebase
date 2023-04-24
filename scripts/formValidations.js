@@ -1,22 +1,16 @@
 //Select inputs from query selector and store in respective variables.
-const formElement = document.querySelector("form");
-const firstNameElement = document.querySelector("#first-name");
-const lastNameElement = document.querySelector("#last-name");
-const phoneElement = document.querySelector("#phone");
-const emailElement = document.querySelector("#email");
-const messageElement = document.querySelector("#message");
-const submitButtonElement = document.querySelector("#submit");
+export const formElement = document.querySelector("form");
+export const firstNameElement = document.querySelector("#first-name");
+export const lastNameElement = document.querySelector("#last-name");
+export const phoneElement = document.querySelector("#phone");
+export const emailElement = document.querySelector("#email");
+export const messageElement = document.querySelector("#message");
+export const submitButtonElement = document.querySelector("#submit");
 
 // Disable the submit button initially
-submitButtonElement.disabled = true;
-
-// add event listener on every element
-firstNameElement.addEventListener("blur", validateForm);
-lastNameElement.addEventListener("blur", validateForm);
-phoneElement.addEventListener("blur", validateForm);
-emailElement.addEventListener("blur", validateForm);
-messageElement.addEventListener("blur", validateForm);
-
+if (submitButtonElement) {
+  submitButtonElement.disabled = true;
+}
 // these variables check validity of every input element and return boolean
 let isFirstNameValid,
   islastNameValid,
@@ -25,7 +19,7 @@ let isFirstNameValid,
   isMessageValid = false;
 
 // callback fn to validate every input element
-function validateForm(e) {
+export function validateForm(e) {
   const inputElement = e.target;
   if (inputElement.id === "first-name") {
     if (inputElement.value === "") {
@@ -107,9 +101,3 @@ const errorMessages = (inputElement, errorMsg = null) => {
     inputElement.style.borderBottom = "1px solid  lightgrey";
   }
 };
-
-// add event listener on submit form
-formElement.addEventListener("submit", () => {
-  alert("Message has sent successfully");
-  window.history.back();
-});
