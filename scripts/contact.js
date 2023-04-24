@@ -11,6 +11,7 @@ import {
 import {
   ref,
   get,
+  push,
   onValue,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 import {
@@ -74,7 +75,16 @@ emailElement.addEventListener("blur", validateForm);
 messageElement.addEventListener("blur", validateForm);
 
 // add event listener on submit form
-formElement.addEventListener("submit", () => {
-  alert("Message has sent successfully");
-  window.history.back();
+formElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const messageRef = ref(database, "/messages");
+  const message = {
+    firstName: firstNameElement.value,
+    lastName: lastNameElement.value,
+    email: emailElement.value,
+    phone: phoneElement.value,
+    message: messageElement.value,
+  };
+  push(messageRef, message);
+  alert(`Thank you ${firstNameElement.value}. We have recieved your message`);
 });
