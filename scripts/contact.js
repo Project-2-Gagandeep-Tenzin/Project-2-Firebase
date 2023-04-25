@@ -1,15 +1,19 @@
 import { toggleMenu, toggleCart } from "./toggleFun.js";
 import {
+  firstNameElement,
+  lastNameElement,
+  emailElement,
+  phoneElement,
+  messageElement,
+  formElement,
+  validateForm,
+} from "./formValidations.js";
+import {
   ref,
   get,
+  push,
   onValue,
 } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-import {
-  productsInventoryRef,
-  productsContainer,
-  displayItems,
-} from "./products.js";
-
 import {
   database,
   cartRef,
@@ -22,21 +26,7 @@ import {
   removeProductFromCart,
 } from "./cart.js";
 
-// using onvalue to display list of products on page and populate those on every change
-onValue(productsInventoryRef, (snapshot) => {
-  const productsInventory = snapshot.val();
-  displayItems(productsInventory);
-});
-
-// Adding products in to cart and updating stock in products inventory
-productsContainer.addEventListener("click", (e) => {
-  // if targeting element id is equal to cart then do something
-  if (e.target.id === "cart") {
-    addToCart(e.target.parentElement.id);
-  }
-});
-
-// Showing the list of items on cart widget and populate those on every change
+// Showing the list of items on cart widget
 onValue(cartRef, (snapshot) => {
   const cartItems = snapshot.val();
   displayTotalSize(cartItems);
@@ -73,4 +63,28 @@ cartInfoElement.addEventListener("click", (e) => {
       }
     }
   });
+});
+
+// form Validations
+
+// add event listener on every element
+firstNameElement.addEventListener("blur", validateForm);
+lastNameElement.addEventListener("blur", validateForm);
+phoneElement.addEventListener("blur", validateForm);
+emailElement.addEventListener("blur", validateForm);
+messageElement.addEventListener("blur", validateForm);
+
+// add event listener on submit form
+formElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const messageRef = ref(database, "/messages");
+  const message = {
+    firstName: firstNameElement.value,
+    lastName: lastNameElement.value,
+    email: emailElement.value,
+    phone: phoneElement.value,
+    message: messageElement.value,
+  };
+  push(messageRef, message);
+  alert(`Thank you ${firstNameElement.value}. We have recieved your message`);
 });
