@@ -1,337 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pronia</title>
-    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <link rel="stylesheet" href="./styles/styles.css" />
-  </head>
-  <body>
-    <header>
-      <div class="top-bar">
-        <div class="wrapper">
-          <h3>Hello World! 25% off all products</h3>
-          <ul>
-            <li><a href="#">Cad</a></li>
-            <li><a href="#">English</a></li>
-          </ul>
-        </div>
-      </div>
-      <nav class="navbar">
-        <div class="wrapper">
-          <div class="logo">
-            <img src="./assets/logo.png" alt="logo" />
-          </div>
-
-          <ul class="nav" id="nav">
-            <li class="nav-items hvr-grow">
-              <a class="nav-links" href="index.html">Home</a>
-            </li>
-            <li class="nav-items hvr-grow">
-              <a class="nav-links" href="#">Blog</a>
-            </li>
-            <li class="nav-items hvr-grow">
-              <a class="nav-links" href="contact.html">Contact Us</a>
-            </li>
-          </ul>
-          <div class="shopping-bag">
-            <img
-              src="./assets/icons/shopping-bag.svg"
-              width="24"
-              height="24"
-              alt="shopping-bag icon"
-            />
-            <span id="total-items">0</span>
-          </div>
-          <button type="button" class="hamburger">&#9776;</button>
-        </div>
-      </nav>
-
-      <div class="cart-design-container">
-        <h2 class="cart-heading"></h2>
-        <ul class="cart-info"></ul>
-        <div class="checkout-price-info"></div>
-        <div class="cart-buttons"></div>
-      </div>
-
-      <div class="header-banner">
-        <div class="wrapper">
-          <div
-            class="header-text animate__animated animate__bounceInDown animate__delay-1s"
-          >
-            <h2>65% OFF</h2>
-            <h1>NEW PLANT</h1>
-            <p>Pronia, With 100% Natural, Organic & Plant Shop.</p>
-            <button class="hvr-pulse" type="button">Discover Now</button>
-          </div>
-          <div class="header-img hvr-bob">
-            <img
-              class="animate__animated animate__bounceInRight animate__delay-1s"
-              src="./assets/header.png"
-              alt="header-img of website"
-            />
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <!-- ***************************SERVICES SECTION START HERE**************************** -->
-      <section class="services">
-        <div class="wrapper">
-          <div class="service-box">
-            <img
-              src="./assets/icons/car.png"
-              alt="this card-icon shows the free shipping service"
-            />
-            <div class="service-info">
-              <h3>Free Shipping</h3>
-              <p>Capped at $319 per order</p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pronia</title>
+        <link
+            rel="shortcut icon"
+            href="./assets/favicon.ico"
+            type="image/x-icon"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+        <link rel="stylesheet" href="./styles/styles.css" />
+    </head>
+    <body>
+        <header>
+            <div class="top-bar">
+                <div class="wrapper">
+                    <h3>Hello World! 25% off all products</h3>
+                    <ul>
+                        <li><a href="#">Cad</a></li>
+                        <li><a href="#">English</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
-          <div class="service-box">
-            <img
-              src="./assets/icons/card.png"
-              alt="card-icon shows the payment service"
-            />
-            <div class="service-info">
-              <h3>Safe Payment</h3>
-              <p>With our payment gateway</p>
+            <nav class="navbar" id="navbar">
+                <div class="wrapper">
+                    <div class="logo">
+                        <img src="./assets/logo.png" alt="logo" />
+                    </div>
+
+                    <ul class="nav" id="nav">
+                        <li class="nav-items hvr-grow">
+                            <a class="nav-links" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-items hvr-grow">
+                            <a class="nav-links" href="#">Blog</a>
+                        </li>
+                        <li class="nav-items hvr-grow">
+                            <a class="nav-links" href="contact.html"
+                                >Contact Us</a
+                            >
+                        </li>
+                    </ul>
+                    <div class="shopping-bag">
+                        <img
+                            src="./assets/icons/shopping-bag.svg"
+                            width="24"
+                            height="24"
+                            alt="shopping-bag icon"
+                        />
+                        <span id="total-items">0</span>
+                    </div>
+                    <button type="button" class="hamburger">&#9776;</button>
+                </div>
+                <div class="cart-design-container">
+                    <h2 class="cart-heading"></h2>
+                    <ul class="cart-info"></ul>
+                    <div class="checkout-price-info"></div>
+                    <div class="cart-buttons"></div>
+                </div>
+            </nav>
+
+            <div class="header-banner">
+                <div class="wrapper">
+                    <div
+                        class="header-text animate__animated animate__bounceInDown animate__delay-1s"
+                    >
+                        <h2>65% OFF</h2>
+                        <h1>NEW PLANT</h1>
+                        <p>Pronia, With 100% Natural, Organic & Plant Shop.</p>
+                        <button class="hvr-pulse" type="button">
+                            Discover Now
+                        </button>
+                    </div>
+                    <div class="header-img hvr-bob">
+                        <img
+                            class="animate__animated animate__bounceInRight animate__delay-1s"
+                            src="./assets/header.png"
+                            alt="header-img of website"
+                        />
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="service-box">
-            <img
-              src="./assets/icons/service.png"
-              alt="service-icon shows the free shipping and other services"
-            />
-            <div class="service-info">
-              <h3>Free Shipping</h3>
-              <p>Friendly & Super Services</p>
+        </header>
+
+        <main>
+            <!-- ***************************SERVICES SECTION START HERE**************************** -->
+            <section class="services">
+                <div class="wrapper">
+                    <div class="service-box">
+                        <img
+                            src="./assets/icons/car.png"
+                            alt="this card-icon shows the free shipping service"
+                        />
+                        <div class="service-info">
+                            <h3>Free Shipping</h3>
+                            <p>Capped at $319 per order</p>
+                        </div>
+                    </div>
+                    <div class="service-box">
+                        <img
+                            src="./assets/icons/card.png"
+                            alt="card-icon shows the payment service"
+                        />
+                        <div class="service-info">
+                            <h3>Safe Payment</h3>
+                            <p>With our payment gateway</p>
+                        </div>
+                    </div>
+                    <div class="service-box">
+                        <img
+                            src="./assets/icons/service.png"
+                            alt="service-icon shows the free shipping and other services"
+                        />
+                        <div class="service-info">
+                            <h3>Free Shipping</h3>
+                            <p>Friendly & Super Services</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ***************************PRODUCTS SECTION START HERE**************************** -->
+            <section class="products">
+                <div class="wrapper">
+                    <h2>Our Products</h2>
+                    <ul class="filter-tabs">
+                        <li>
+                            <a href="#">Featured</a>
+                        </li>
+                        <li><a href="#">Bestseller</a></li>
+                        <li><a href="#">Latest</a></li>
+                    </ul>
+                    <ul class="products-container"></ul>
+                </div>
+            </section>
+
+            <!-- ***************************COLLECTION SECTION START HERE**************************** -->
+            <section class="collection">
+                <div class="wrapper">
+                    <div class="collection-lg box-1">
+                        <div class="collection-text">
+                            <p>Collection of Cactus</p>
+                            <h2>Pottery Pots & Plant</h2>
+                            <button type="button" class="hvr-wobble-skew">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="collection-sm box-2">
+                        <div class="collection-text">
+                            <p>New Collection</p>
+                            <h2>Plant Port</h2>
+                            <button type="button" class="hvr-wobble-skew">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="collection-sm box-3">
+                        <div class="collection-text">
+                            <p>New Collection</p>
+                            <h2>Plant Port</h2>
+                            <button type="button" class="hvr-wobble-skew">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="collection-lg box-4">
+                        <div class="collection-text">
+                            <p>Collection of Cactus</p>
+                            <h2>Hanging Pots & Plant</h2>
+                            <button type="button" class="hvr-wobble-skew">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ***************************BLOG SECTION START HERE**************************** -->
+            <section class="blog" id="blog">
+                <div class="wrapper">
+                    <h2>Latest Posts</h2>
+                    <p class="sub-heading">
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text.It has roots in a piece of classical Latin
+                        literature.
+                    </p>
+                    <ul class="posts">
+                        <li class="post hvr-float-shadow">
+                            <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
+                            <h3 class="post-heading">Aenean Vulputate Lorem</h3>
+                            <p class="post-content">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Molestiae doloribus rem harum
+                                velit earum, pariatur iusto natus, non voluptate
+                                fugiat expedit
+                            </p>
+                            <img
+                                src="./assets/blog1.jpeg"
+                                alt="some random pic of blog post"
+                            />
+                        </li>
+                        <li class="post hvr-float-shadow">
+                            <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
+                            <h3 class="post-heading">
+                                There Are Many Variations
+                            </h3>
+                            <p class="post-content">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Molestiae doloribus rem harum
+                                velit earum, pariatur iusto natus, non voluptate
+                                fugiat expedit
+                            </p>
+                            <img
+                                src="./assets/blog3.jpeg"
+                                alt="some random pic of blog post"
+                            />
+                        </li>
+
+                        <li class="post hvr-float-shadow">
+                            <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
+                            <h3 class="post-heading">Maecenas Laoreet Massa</h3>
+                            <p class="post-content">
+                                Lorem, ipsum dolor sit amet consectetur
+                                adipisicing elit. Molestiae doloribus rem harum
+                                velit earum, pariatur iusto natus, non voluptate
+                                fugiat expedit
+                            </p>
+                            <img
+                                src="./assets/blog2.jpeg"
+                                alt="some random pic of blog post"
+                            />
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- ******************************** FOOTER ********************************** -->
+        <footer>
+            <div class="wrapper">
+                <div class="footer">
+                    <section class="about">
+                        <img
+                            src="./assets//logo.png"
+                            width="100"
+                            height="50"
+                            alt="logo pic in footer"
+                        />
+                        <p>
+                            Lorem ipsum, dolor sit amet colit. Cum expedita
+                            consequuntur itaque quisquam! ddss dsdd ds d isquam!
+                            ddss dsdd ds d
+                        </p>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="#">
+                                    <img
+                                        src="./assets/icons/facebook.svg"
+                                        width="20"
+                                        height="20"
+                                        alt="facebook-icon"
+                                    />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img
+                                        src="./assets/icons/twitter.svg"
+                                        width="20"
+                                        height="20"
+                                        alt="twitter-icon"
+                                    />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    ><img
+                                        src="./assets/icons/pinterest.svg"
+                                        width="20"
+                                        height="20"
+                                        alt="pinterest-icon"
+                                /></a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    ><img
+                                        src="./assets/icons/dribble.svg"
+                                        width="20"
+                                        height="20"
+                                        alt="dribble-icon"
+                                /></a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="links">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li>
+                                <a class="hvr-grow" href="#">About Pronia</a>
+                            </li>
+                            <li>
+                                <a class="hvr-grow" href="#">How to shop</a>
+                            </li>
+                            <li><a class="hvr-grow" href="#">FAQ</a></li>
+                            <li><a class="hvr-grow" href="#">Contact us</a></li>
+                            <li><a class="hvr-grow" href="#">Log in</a></li>
+                        </ul>
+                    </section>
+                    <section class="my-account">
+                        <h3>My Account</h3>
+                        <ul>
+                            <li><a class="hvr-grow" href="#">Sign In</a></li>
+                            <li><a class="hvr-grow" href="#">View Cart</a></li>
+                            <li>
+                                <a class="hvr-grow" href="#">My Wishlist</a>
+                            </li>
+                            <li>
+                                <a class="hvr-grow" href="#">Track My Order</a>
+                            </li>
+                            <li><a class="hvr-grow" href="#">Help</a></li>
+                        </ul>
+                    </section>
+                    <section class="service">
+                        <h3>Our Service</h3>
+                        <ul>
+                            <li>
+                                <a class="hvr-grow" href="#">Payment Methods</a>
+                            </li>
+                            <li>
+                                <a class="hvr-grow" href="#"
+                                    >Money Guaranteel</a
+                                >
+                            </li>
+                            <li><a class="hvr-grow" href="#">Returns</a></li>
+                            <li><a class="hvr-grow" href="#">Shipping</a></li>
+                            <li>
+                                <a class="hvr-grow" href="#">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="contact">
+                        <h3>Got Question? Call Us</h3>
+                        <ul>
+                            <li>123 456 789</li>
+                            <li>Your Address Goes Here</li>
+                        </ul>
+                    </section>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ***************************PRODUCTS SECTION START HERE**************************** -->
-      <section class="products">
-        <div class="wrapper">
-          <h2>Our Products</h2>
-          <ul class="filter-tabs">
-            <li>
-              <a href="#">Featured</a>
-            </li>
-            <li><a href="#">Bestseller</a></li>
-            <li><a href="#">Latest</a></li>
-          </ul>
-          <ul class="products-container"></ul>
-        </div>
-      </section>
-
-      <!-- ***************************COLLECTION SECTION START HERE**************************** -->
-      <section class="collection">
-        <div class="wrapper">
-          <div class="collection-lg box-1">
-            <div class="collection-text">
-              <p>Collection of Cactus</p>
-              <h2>Pottery Pots & Plant</h2>
-              <button type="button" class="hvr-wobble-skew">Shop Now</button>
+            <div class="wrapper">
+                <p class="copyright">
+                    Created at Juno College &copy 2023 Pronia
+                </p>
             </div>
-          </div>
-          <div class="collection-sm box-2">
-            <div class="collection-text">
-              <p>New Collection</p>
-              <h2>Plant Port</h2>
-              <button type="button" class="hvr-wobble-skew">Shop Now</button>
-            </div>
-          </div>
-
-          <div class="collection-sm box-3">
-            <div class="collection-text">
-              <p>New Collection</p>
-              <h2>Plant Port</h2>
-              <button type="button" class="hvr-wobble-skew">Shop Now</button>
-            </div>
-          </div>
-
-          <div class="collection-lg box-4">
-            <div class="collection-text">
-              <p>Collection of Cactus</p>
-              <h2>Hanging Pots & Plant</h2>
-              <button type="button" class="hvr-wobble-skew">Shop Now</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ***************************BLOG SECTION START HERE**************************** -->
-      <section class="blog" id="blog">
-        <div class="wrapper">
-          <h2>Latest Posts</h2>
-          <p class="sub-heading">
-            Contrary to popular belief, Lorem Ipsum is not simply random text.It
-            has roots in a piece of classical Latin literature.
-          </p>
-          <ul class="posts">
-            <li class="post hvr-float-shadow">
-              <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
-              <h3 class="post-heading">Aenean Vulputate Lorem</h3>
-              <p class="post-content">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Molestiae doloribus rem harum velit earum, pariatur iusto natus,
-                non voluptate fugiat expedit
-              </p>
-              <img
-                src="./assets/blog1.jpeg"
-                alt="some random pic of blog post"
-              />
-            </li>
-            <li class="post hvr-float-shadow">
-              <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
-              <h3 class="post-heading">There Are Many Variations</h3>
-              <p class="post-content">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Molestiae doloribus rem harum velit earum, pariatur iusto natus,
-                non voluptate fugiat expedit
-              </p>
-              <img
-                src="./assets/blog3.jpeg"
-                alt="some random pic of blog post"
-              />
-            </li>
-
-            <li class="post hvr-float-shadow">
-              <p class="post-date">BY: ADMIN 24 APRIL, 2021</p>
-              <h3 class="post-heading">Maecenas Laoreet Massa</h3>
-              <p class="post-content">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Molestiae doloribus rem harum velit earum, pariatur iusto natus,
-                non voluptate fugiat expedit
-              </p>
-              <img
-                src="./assets/blog2.jpeg"
-                alt="some random pic of blog post"
-              />
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
-
-    <!-- ******************************** FOOTER ********************************** -->
-    <footer>
-      <div class="wrapper">
-        <div class="footer">
-          <section class="about">
-            <img
-              src="./assets//logo.png"
-              width="100"
-              height="50"
-              alt="logo pic in footer"
-            />
-            <p>
-              Lorem ipsum, dolor sit amet colit. Cum expedita consequuntur
-              itaque quisquam! ddss dsdd ds d isquam! ddss dsdd ds d
-            </p>
-            <ul class="social-icons">
-              <li>
-                <a href="#">
-                  <img
-                    src="./assets/icons/facebook.svg"
-                    width="20"
-                    height="20"
-                    alt="facebook-icon"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img
-                    src="./assets/icons/twitter.svg"
-                    width="20"
-                    height="20"
-                    alt="twitter-icon"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/pinterest.svg"
-                    width="20"
-                    height="20"
-                    alt="pinterest-icon"
-                /></a>
-              </li>
-              <li>
-                <a href="#"
-                  ><img
-                    src="./assets/icons/dribble.svg"
-                    width="20"
-                    height="20"
-                    alt="dribble-icon"
-                /></a>
-              </li>
-            </ul>
-          </section>
-          <section class="links">
-            <h3>Useful Links</h3>
-            <ul>
-              <li><a class="hvr-grow" href="#">About Pronia</a></li>
-              <li><a class="hvr-grow" href="#">How to shop</a></li>
-              <li><a class="hvr-grow" href="#">FAQ</a></li>
-              <li><a class="hvr-grow" href="#">Contact us</a></li>
-              <li><a class="hvr-grow" href="#">Log in</a></li>
-            </ul>
-          </section>
-          <section class="my-account">
-            <h3>My Account</h3>
-            <ul>
-              <li><a class="hvr-grow" href="#">Sign In</a></li>
-              <li><a class="hvr-grow" href="#">View Cart</a></li>
-              <li><a class="hvr-grow" href="#">My Wishlist</a></li>
-              <li><a class="hvr-grow" href="#">Track My Order</a></li>
-              <li><a class="hvr-grow" href="#">Help</a></li>
-            </ul>
-          </section>
-          <section class="service">
-            <h3>Our Service</h3>
-            <ul>
-              <li><a class="hvr-grow" href="#">Payment Methods</a></li>
-              <li><a class="hvr-grow" href="#">Money Guaranteel</a></li>
-              <li><a class="hvr-grow" href="#">Returns</a></li>
-              <li><a class="hvr-grow" href="#">Shipping</a></li>
-              <li><a class="hvr-grow" href="#">Privacy Policy</a></li>
-            </ul>
-          </section>
-          <section class="contact">
-            <h3>Got Question? Call Us</h3>
-            <ul>
-              <li>123 456 789</li>
-              <li>Your Address Goes Here</li>
-            </ul>
-          </section>
-        </div>
-      </div>
-      <div class="wrapper">
-        <p class="copyright">Created at Juno College &copy 2023 Pronia</p>
-      </div>
-    </footer>
-  </body>
-  <script type="module" src="./scripts/script.js"></script>
+        </footer>
+    </body>
+    <script type="module" src="./scripts/script.js"></script>
 </html>

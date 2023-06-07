@@ -18,7 +18,7 @@ const checkoutPriceInfoElement = document.querySelector(".checkout-price-info");
 const cartButtons = document.querySelector(".cart-buttons");
 const totalItems = document.querySelector("#total-items");
 
-// adding items in cart
+// adding items in cart 
 export const addToCart = (key) => {
   const productsInventoryRef = ref(database, `productsInventory/${key}`);
   const cartItemRef = ref(database, `/cart/${key}`);

@@ -2,347 +2,366 @@
 @use "global";
 
 header {
-  height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
 }
 .top-bar {
-  text-transform: uppercase;
-  background: $primary;
-  color: #fff;
-  padding: 0;
-  font-size: 12px;
+    text-transform: uppercase;
+    background: $primary;
+    color: #fff;
+    padding: 0;
+    height: 40px;
+    font-size: 12px;
+    flex-grow: 0;
 }
 .top-bar .wrapper {
-  display: flex;
-  justify-content: space-between;
-
-  h3 {
-    flex: 2 1 auto;
-  }
-
-  ul {
     display: flex;
-    flex: 1 1 auto;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 
-    li {
-      margin-left: 16px;
-      a {
-        color: #fff;
-      }
+    h3 {
+        flex: 2 1 auto;
     }
-  }
+
+    ul {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        justify-content: flex-end;
+
+        li {
+            margin-left: 16px;
+            a {
+                color: #fff;
+            }
+        }
+    }
 }
 
 //**************************** NAVBAR SECTION - STYLE ******************************
 .navbar {
-  margin: 10px 0px;
+    flex-grow: 0;
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    background-color: #fff;
+    z-index: 2;
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
 }
 .navbar .wrapper {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 .logo {
-  flex: 2 1 auto;
+    flex: 2 1 auto;
+    img {
+        padding: 5px 0;
+        width: 100px;
+        height: 60px;
+    }
 }
 
 .nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex: 1 1 auto;
-
-  .nav-links {
-    color: #000;
-    text-transform: uppercase;
-  }
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1 1 auto;
+    margin-top: 5px;
+    .nav-links {
+        color: #000;
+        text-transform: uppercase;
+    }
 }
 .shopping-bag {
-  display: flex;
-  justify-content: flex-end;
-  align-content: center;
-  flex: 2.5 1 auto;
-  position: relative;
-  img {
-    margin: 16px 10px 0 0;
-    cursor: pointer;
-  }
-  span {
-    position: absolute;
-    top: 15%;
-    background: $primary;
-    border-radius: 50%;
-    padding: 0 5px;
-    color: #fff;
-  }
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    flex: 2.5 1 auto;
+    position: relative;
+    margin-top: 5px;
+
+    img {
+        margin: 16px 10px 0 0;
+        cursor: pointer;
+    }
+    span {
+        position: absolute;
+        top: 15%;
+        background: $primary;
+        border-radius: 50%;
+        padding: 0 5px;
+        color: #fff;
+    }
 }
 
 .hamburger {
-  display: none;
-  background: none;
-  color: #000;
-  border-radius: 0;
-  font-size: 30px;
-  padding: 4px;
-  margin-top: 10px;
+    display: none;
+    background: none;
+    color: #000;
+    border-radius: 0;
+    font-size: 30px;
+    padding: 4px;
+    margin-top: 10px;
 }
 
 //******************* Shopping Cart Design - STYLE ************************
 
 .cart-design-container {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  display: flex;
-  flex-direction: column;
-  flex-basis: 25%;
-  position: absolute;
-  background-color: #fff;
-  right: 5%;
-  z-index: 1;
-  width: 350px;
-  display: none;
-  .cart-heading {
-    text-align: center;
-    margin-top: 20px;
-  }
-  .cart-info {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: flex;
     flex-direction: column;
-    height: auto;
-    max-height: 300px;
-    overflow-y: auto;
-
-    .product-info {
-      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-top: 20px;
-      flex-basis: calc(100% / 3);
+    flex-basis: 25%;
+    position: absolute;
+    background-color: #fff;
+    right: 5%;
+    z-index: 1;
+    width: 350px;
+    display: none;
+    .cart-heading {
+        text-align: center;
+        margin-top: 20px;
     }
-  }
+    .cart-info {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-height: 300px;
+        overflow-y: auto;
+
+        .product-info {
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+            flex-basis: calc(100% / 3);
+        }
+    }
 }
 
 .product-info {
-  .product-name {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    .product-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
 
-    width: 35%;
-    p {
-      position: relative;
-      right: 20px;
-      margin: 0;
+        width: 35%;
+        p {
+            position: relative;
+            right: 20px;
+            margin: 0;
+        }
     }
-  }
-  img {
-    width: 35%;
-  }
-  i {
-    cursor: pointer;
-  }
+    img {
+        width: 35%;
+    }
+    i {
+        cursor: pointer;
+    }
 }
 .number {
-  position: relative;
-  right: 20px;
-  span {
-    cursor: pointer;
-  }
-  .minus,
-  .plus {
-    background: #f2f2f2;
-    border-radius: 4px;
-    padding: 8px 5px 8px 5px;
-    border: 1px solid #ddd;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-  }
-  input {
-    height: 34px;
-    width: 30px;
-    text-align: center;
-    font-size: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    display: inline-block;
-    vertical-align: middle;
-  }
+    position: relative;
+    right: 20px;
+    span {
+        cursor: pointer;
+    }
+    .minus,
+    .plus {
+        background: #f2f2f2;
+        border-radius: 4px;
+        padding: 8px 5px 8px 5px;
+        border: 1px solid #ddd;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+    input {
+        height: 34px;
+        width: 30px;
+        text-align: center;
+        font-size: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
 
 .sub-total,
 .tax-total,
 .price-total {
-  display: flex;
-  justify-content: space-between;
-  margin-right: 20px;
-  margin-bottom: 0;
-  margin-left: 25px;
-  margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    margin-bottom: 0;
+    margin-left: 25px;
+    margin-top: 0;
 
-  p {
-    margin: 2px 0;
-  }
+    p {
+        margin: 2px 0;
+    }
 }
 .sub-total {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .cart-buttons {
-  margin: 20px 0;
-  display: flex;
-  justify-content: space-evenly;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
 }
 //**************************** BANNER SECTION - STYLE ******************************
 
 .header-banner {
-  background-color: #f8eee5;
-  padding: 50px;
+    background-color: #f8eee5;
+    padding: 50px;
+    flex-grow: 3;
 }
 .header-banner .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .header-text {
-  h2 {
-    font-size: 48px;
-  }
-  h1 {
-    font-size: 64px;
-  }
+    h2 {
+        font-size: 48px;
+    }
+    h1 {
+        font-size: 64px;
+    }
 }
 .header-img {
-  display: flex;
-  justify-content: center;
-  img {
-    width: 70%;
-  }
+    display: flex;
+    justify-content: center;
+    img {
+        width: 80%;
+    }
 }
 
 //**************************** CONTACT HEADER  - STYLE ******************************
 
 .contact-header {
-  height: auto;
+    height: auto;
 }
 
 .contact-header-banner {
-  background: url(./../assets/contact-header.jpg);
-  background-position: center;
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 90px;
-  }
+    background: url(./../assets/contact-header.jpg);
+    background-position: center;
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        padding: 90px;
+    }
 }
 
 //******************************** MEDIA QUESRIES  ************************************
 
 @media (max-width: 992px) {
-  header {
-    height: auto;
-  }
-  // Header Banner
-  .header-text {
-    h2 {
-      font-size: 32px;
+    header {
+        height: auto;
     }
-    h1 {
-      font-size: 44px;
+    // Header Banner
+    .header-text {
+        h2 {
+            font-size: 32px;
+        }
+        h1 {
+            font-size: 44px;
+        }
     }
-  }
 }
 
 @media (max-width: 768px) {
-  // Header Banner
-  .header-banner .wrapper {
-    flex-direction: column;
-  }
-  .header-text {
-    text-align: center;
-    h2 {
-      font-size: 36px;
+    // Header Banner
+    .header-banner .wrapper {
+        flex-direction: column;
     }
-    h1 {
-      font-size: 48px;
+    .header-text {
+        text-align: center;
+        h2 {
+            font-size: 36px;
+        }
+        h1 {
+            font-size: 48px;
+        }
     }
-  }
 }
 
 @media (max-width: 480px) {
-  //  top bar
-  .top-bar .wrapper {
-    font-size: 9px;
-  }
-  // navbar
-  .navbar .wrapper {
-    flex-direction: column;
-    position: relative;
-  }
+    //  top bar
+    .top-bar .wrapper {
+        font-size: 9px;
+    }
+    // navbar
+    .navbar .wrapper {
+        flex-direction: column;
+        position: relative;
+    }
 
-  .nav {
-    display: none;
-    align-items: flex-start;
-    justify-content: space-between;
-    li {
-      margin-top: 20px;
+    .nav {
+        display: none;
+        align-items: flex-start;
+        justify-content: space-between;
+        li {
+            margin-top: 20px;
+        }
     }
-  }
-  .shopping-bag {
-    display: none;
-    margin: 10px 0px;
-    justify-content: flex-start;
-    span {
-      left: 4%;
+    .shopping-bag {
+        display: none;
+        margin: 10px 0px;
+        justify-content: flex-start;
+        span {
+            left: 4%;
+        }
     }
-  }
-  .hamburger {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-  .nav-sm {
-    display: flex;
-  }
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .nav-sm {
+        display: flex;
+    }
 
-  // header-banner
-  .header-banner .header-text {
-    margin: 50px 0 0 0;
-    text-align: center;
-    h2 {
-      font-size: 24px;
+    // header-banner
+    .header-banner .header-text {
+        margin: 50px 0 0 0;
+        text-align: center;
+        h2 {
+            font-size: 24px;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        button {
+            padding: 10px 12px;
+            font-size: 12px;
+        }
     }
-    h1 {
-      font-size: 36px;
+    .header-img {
+        margin-bottom: 50px;
     }
-    button {
-      padding: 10px 12px;
-      font-size: 12px;
-    }
-  }
-  .header-img {
-    margin-bottom: 50px;
-  }
 }
 
 @media (max-width: 360px) {
-  // top bar
-  .top-bar .wrapper {
-    flex-direction: column;
-    padding: 5px;
+    // top bar
+    .top-bar .wrapper {
+        flex-direction: column;
+        padding: 5px;
 
-    h3 {
-      text-align: center;
+        h3 {
+            text-align: center;
+        }
+
+        ul {
+            justify-content: center;
+        }
     }
 
-    ul {
-      justify-content: center;
+    // header-banner
+    .header-img {
+        display: none;
     }
-  }
-
-  // header-banner
-  .header-img {
-    display: none;
-  }
 }
