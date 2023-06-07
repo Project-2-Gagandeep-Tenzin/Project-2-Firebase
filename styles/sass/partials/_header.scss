@@ -5,12 +5,14 @@ header {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    position: relative;
 }
 .top-bar {
     text-transform: uppercase;
     background: $primary;
     color: #fff;
     padding: 0;
+    height: 40px;
     font-size: 12px;
     flex-grow: 0;
 }
@@ -39,8 +41,13 @@ header {
 
 //**************************** NAVBAR SECTION - STYLE ******************************
 .navbar {
-    margin: 10px 0px;
     flex-grow: 0;
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    background-color: #fff;
+    z-index: 2;
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
 }
 .navbar .wrapper {
     display: flex;
@@ -48,6 +55,11 @@ header {
 }
 .logo {
     flex: 2 1 auto;
+    img {
+        padding: 5px 0;
+        width: 100px;
+        height: 60px;
+    }
 }
 
 .nav {
@@ -55,7 +67,7 @@ header {
     justify-content: space-around;
     align-items: center;
     flex: 1 1 auto;
-
+    margin-top: 5px;
     .nav-links {
         color: #000;
         text-transform: uppercase;
@@ -67,6 +79,8 @@ header {
     align-content: center;
     flex: 2.5 1 auto;
     position: relative;
+    margin-top: 5px;
+
     img {
         margin: 16px 10px 0 0;
         cursor: pointer;
@@ -203,7 +217,6 @@ header {
     background-color: #f8eee5;
     padding: 50px;
     flex-grow: 3;
-    //
 }
 .header-banner .wrapper {
     display: flex;
@@ -222,7 +235,7 @@ header {
     display: flex;
     justify-content: center;
     img {
-        width: 70%;
+        width: 80%;
     }
 }
 

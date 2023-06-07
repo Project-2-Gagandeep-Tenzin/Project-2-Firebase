@@ -99,3 +99,17 @@ hamburger.addEventListener("click", () => {
     navMenuBar.classList.toggle("nav-sm");
     shoppingBag.classList.toggle("nav-sm");
 });
+
+const navbar = document.querySelector("#navbar");
+
+window.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY;
+
+    if (scrollTop >= 40) {
+        navbar.style.top = "0px";
+        navbar.style.transitionDuration = "0.2s";
+    } else {
+        navbar.style.top = "40px";
+        navbar.style.transitionDuration = "0.2s";
+    }
+});
