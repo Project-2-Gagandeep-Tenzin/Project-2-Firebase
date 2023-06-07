@@ -1,4 +1,3 @@
-import { toggleMenu, toggleCart } from "./toggleFun.js";
 import {
     ref,
     get,
@@ -21,9 +20,6 @@ import {
     updateItemFromCart,
     removeProductFromCart,
 } from "./cart.js";
-
-toggleCart();
-toggleMenu();
 
 // using onvalue to display list of products on page and populate those on every change
 onValue(productsInventoryRef, (snapshot) => {
@@ -78,4 +74,28 @@ cartInfoElement.addEventListener("click", (e) => {
             }
         }
     });
+});
+
+// Toggle Menu
+const hamburger = document.querySelector(".hamburger");
+const navMenuBar = document.querySelector(".nav");
+const shoppingBag = document.querySelector(".shopping-bag");
+
+const shoppingCartIcon = document.querySelector(".shopping-bag img");
+const shoppingCartItems = document.querySelector(".cart-design-container");
+
+shoppingCartIcon.addEventListener("click", () => {
+    if (
+        shoppingCartItems.style.display == "" ||
+        shoppingCartItems.style.display == "none"
+    ) {
+        shoppingCartItems.style.display = "block";
+    } else {
+        shoppingCartItems.style.display = "none";
+    }
+});
+
+hamburger.addEventListener("click", () => {
+    navMenuBar.classList.toggle("nav-sm");
+    shoppingBag.classList.toggle("nav-sm");
 });
