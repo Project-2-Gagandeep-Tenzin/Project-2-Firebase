@@ -216,6 +216,7 @@ header {
 .header-banner {
     background-color: #f8eee5;
     padding: 50px;
+    margin-top: 50px;
     flex-grow: 3;
 }
 .header-banner .wrapper {
@@ -248,6 +249,7 @@ header {
 .contact-header-banner {
     background: url(./../assets/contact-header.jpg);
     background-position: center;
+    margin-top: 50px;
     .wrapper {
         display: flex;
         justify-content: center;
